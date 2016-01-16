@@ -1,20 +1,18 @@
 {
-  "name": "pharaoh",
-  "version": "0.1.5",
+  "name": "pharaoh-electron",
+  "version": "0.1.0",
   "description": "The front-end for a live code broadcasting app.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "go": "npm-start",
-    "start": "webpack-dev-server --noInfo --port 9090 --hot --inline --open",
+    "start": "webpack-dev-server --noInfo --port 9090 --hot --inline & ./node_modules/.bin/electron electron.js",
     "lint": "node node_modules/.bin/eslint -c .eslintrc src/**",
-    "app": "./node_modules/.bin/electron electron.js",
-    "release": "electron-packager . Pharaoh --platform=all --arch=all --version 0.36.3 --out=./binaries",
-    "desktop": "npm run go & npm run app"
+    "release": "electron-packager . Pharaoh --platform=all --arch=all --version 0.36.3 --out=./binaries"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pharaoh-js/pharaoh.git"
+    "url": "git+https://github.com/pharaoh-js/pharaoh-electron.git"
   },
   "keywords": [
     "live",

@@ -1,0 +1,33 @@
+.container {
+  margin: 10px 5% 30px 5%;
+  text-align: center;
+  width: 90%;
+}
+
+.teamTitle {
+  color: #eee;
+  font-size: 1.8em;
+  line-height: 1.8;
+  text-decoration: none;
+}
+
+.teamTitle:hover {
+  cursor: pointer;
+}
+.team { display: flex; }
+.card {
+  background: #212121;
+  box-shadow: 2px 2px 2px gray;
+  text-align: center;
+  margin: 20px 2.5%;
+  width: 20%;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+.card p { padding: 0 5px; }
+.cardPic {
+  width: 100px;
+  padding: 10px;
+}
+.links { color: #eee; }
+.big { font-size: 1.2rem; }

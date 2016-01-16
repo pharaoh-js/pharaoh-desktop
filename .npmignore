@@ -17,10 +17,9 @@
 .eslintrc
 .gitattributes
 .gitignore
-doc
-ed.js
 node_modules
+postcss.config.js
 src
+todo.md
 webpack.config.js
 webpack.config.prod.js
-

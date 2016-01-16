@@ -14,8 +14,7 @@
 
 * Things we need:
   - A lot.
-  - Top priorities are [here](doc%2Ftodo.md)
-  - There's more information on what we have so far [here](doc%2Freadme.md)
+  - Top priorities are [here](todo.md)
   - Line endings, etc., as specified [here](.gitattributes)
   - We'd _like_ to stick to [this style](.eslintrc), but
     sometimes we're not so good at this.
@@ -28,4 +27,3 @@
 * [Commit Messages](http://stopwritingramblingcommitmessages.com/)
 
 * That's all! Really, thanks for wanting to contribute, I appreciate every little bit. You're great.
-

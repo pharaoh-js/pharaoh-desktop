@@ -135,3 +135,5 @@ Procfile text
 *.pdf diff=astextplain
 *.PDF diff=astextplain
 
+npm-shrinkwrap.json -diff
+yarn.lock -diff

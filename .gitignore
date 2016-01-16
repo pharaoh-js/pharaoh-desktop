@@ -63,7 +63,7 @@
 .vscode
 /.build/
 Icon
-Network Trash Folder
+Network Trash Directory
 Temporary Items
 __pycache__/
 _build/
@@ -88,4 +88,4 @@ pids
 public/lib
 src/.webpack.js
 x/
-
+!yarn.lock

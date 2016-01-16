@@ -1,21 +1,24 @@
-import React          from 'react'
-import ReactDOM       from 'react-dom'
-import {
-  browserHistory
-, ReactRouter
-, Router
-, Route
-}                     from 'react-router'
-import App            from './components/app/App'
-import Landing        from './components/landing/Landing'
-import createHistory  from 'history/lib/createHashHistory'
-require('./shared/styles.less')
+import React from 'react'
+import { render } from 'react-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import App from './app'
+import Landing from './landing'
+import './styles.css'
 
-const history = createHistory({queryKey : false})
+export const {
+  CodeMirror,
+  Firebase,
+  Firepad
+} = global
 
-ReactDOM.render((
-  <Router history={history}>
-    <Route path="/app/:role/:project" component={App} />
-    <Route path="/" component={Landing} />
-  </Router>
-), document.getElementById('root'))
+const el = document.getElementById('root')
+
+render((
+  <BrowserRouter>
+    <Switch>
+      <Route exactly pattern="/" component={Landing} />
+      <Route exactly pattern="/app/:role/:project" component={App} />
+      <Route component={Landing} />
+    </Switch>
+  </BrowserRouter>
+), el)

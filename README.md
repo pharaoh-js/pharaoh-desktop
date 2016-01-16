@@ -5,7 +5,7 @@ please check out [our core repo](https://github.com/pharaoh-js/pharaoh).
 
 This uses [Electron](https://electron.atom.io), [Firepad](http://firepad.io), and
 [React](https://facebook.github.io/react/). To get started,
-`git clone https://github.com/pharaoh-js/pharaoh-electron.git`, `npm i`, and `npm run desktop`.
+`git clone https://github.com/pharaoh-js/pharaoh-electron.git`, `npm i`, and `npm start`.
 
 All issues and PRs welcome!
 

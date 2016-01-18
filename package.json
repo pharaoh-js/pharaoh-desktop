@@ -4,9 +4,9 @@
   "description": "The front-end for a live code broadcasting app.",
   "main": "http://127.0.0.1:9090",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "go": "npm-start",
-    "start": "webpack-dev-server --noInfo --port 9090 --hot --inline --open",
+    "start": "npm run dev & nom run nw",
+    "dev": "webpack-dev-server --quiet --port 9090 --hot --inline",
+    "nw": "nw",
     "lint": "node node_modules/.bin/eslint -c .eslintrc src/**"
   },
   "window": {
@@ -34,9 +34,9 @@
   "author": "Pharaoh Team",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pharaoh-js/pharaoh/issues"
+    "url": "https://github.com/pharaoh-js/pharaoh-desktop/issues"
   },
-  "homepage": "https://github.com/pharaoh-js/pharaoh#readme",
+  "homepage": "https://github.com/pharaoh-js/pharaoh-desktop#readme",
   "dependencies": {
     "codemirror": "^5.10.0",
     "firebase": "^2.3.2",
@@ -69,3 +69,4 @@
     "webpack-dev-server": "^1.14.0"
   }
 }
+

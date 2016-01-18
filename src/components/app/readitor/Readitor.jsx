@@ -70,4 +70,3 @@ const Viewer = React.createClass({
   })
 
 export default Viewer
-

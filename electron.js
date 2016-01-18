@@ -5,8 +5,8 @@ var app           = require('app')
 require('crash-reporter').start()
 
 // allows for remote devtools, in the browser (or whatever)
-app.commandLine.appendSwitch('remote-debugging-port', '9191')
-app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
+// app.commandLine.appendSwitch('remote-debugging-port', '9191')
+// app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 // show devtools if we're in dev
 // if(process.env.NODE_ENV === 'dev'){
@@ -94,4 +94,3 @@ app.on('ready', function(){
     mainWindow = null
   })
 })
-

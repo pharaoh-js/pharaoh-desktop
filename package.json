@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --noInfo --port 9090 --hot --inline & ./node_modules/.bin/electron electron.js",
+    "start": "npm run dev & npm run app",
+    "dev": "./node_modules/.bin/webpack-dev-server --noInfo --port 9090 --hot --inline",
+    "app": "./node_modules/.bin/electron electron.js",
     "lint": "node node_modules/.bin/eslint -c .eslintrc src/**",
     "release": "electron-packager . Pharaoh --platform=all --arch=all --version 0.36.3 --out=./binaries"
   },

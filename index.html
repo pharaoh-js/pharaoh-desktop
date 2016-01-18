@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>pharaoh</title>
-  <!-- toDONE: bundling! -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.css" />
-  <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.css">
+  <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- CODEMIRROR -->
   <!-- <link rel="stylesheet" type="text/css" href="./codemirror_libs/lib/codemirror.css">
@@ -17,52 +16,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.js"></script>
 <script type="text/javascript" src="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js"></script>
 <script type="text/javascript" src="public/bundle.js"></script>
-<!--
-<!-- test section -->
-<button id="openFile" onclick="openFile()">open</button>
-<button id="saveFile" onclick="saveFile()">save</button>
-<br>
-<textarea id="editor" style="width:600px;height:400px;"></textarea>
-
-<script type="text/javascript">
-  var remote = require('remote')
-    , dialog = remote.require('dialog')
-    , fs     = require('fs')
-
-  function openFile(){
-    dialog.showOpenDialog({filters: [
-      {name: 'javascript', extensions: ['js', 'jsx', 'json']}
-    , {name: 'html', extensions: ['html', 'htm', 'xml', 'xhtml', 'svg']}
-    , {name: 'css', extensions: ['css', 'sass', 'less', 'scss', 'styl']}
-    ]}, function(fileNames){
-      if(fileNames === undefined){return}
-      var fileName = fileNames[0]
-      fs.readFile(fileName, 'utf-8', function(err, data){
-        document.getElementById('editor').value = data
-      })
-    })
-  }
-
-  function saveFile(){
-    dialog.showSaveDialog({filters: [
-      {name: 'javascript', extensions: ['js', 'jsx', 'json']}
-    , {name: 'html', extensions: ['html', 'htm', 'xml', 'xhtml', 'svg']}
-    , {name: 'css', extensions: ['css', 'sass', 'less', 'scss', 'styl']}
-    ]}, function(filename){
-      if(fileName === undefined){return}
-      fs.writeFile(fileName, document.getElementById('editor').value, function(err){
-        if (err === undefined){
-          dialog.showMessageBox({message: 'saved!', buttons: ['okee', 'cool, bro!', '^.-']})
-        } else {
-          dialog.showErrorBox('error, oh noes!', err.message)
-        }
-      })
-    })
-  }
-</script>
-<!-- end test section -->
-
--->
 
 
 <!-- CODEMIRROR -->

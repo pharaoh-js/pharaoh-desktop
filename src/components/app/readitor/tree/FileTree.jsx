@@ -1,8 +1,8 @@
-import React from 'react';
-import Folder from './Folder.jsx';
-import Firebase from 'firebase';
-import _ from 'lodash';
-import InlineCss from 'react-inline-css';
+import React     from 'react'
+import Folder    from './Folder.jsx'
+import Firebase  from 'firebase'
+import _         from 'lodash'
+import InlineCss from 'react-inline-css'
 
 class FileTree extends React.Component {
   constructor(props){
@@ -11,43 +11,41 @@ class FileTree extends React.Component {
       projectName: '',
       projectDirectory: {},
       isOpen: {}
-    };
+    }
 
-
-    this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session');
+    this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session/')
 
     //get projectName needs to improve
-    this.projectRef = new Firebase(`${this.firebaseRef}/projectKey`);
+    this.projectRef = new Firebase(`${this.firebaseRef}/projectKey`)
     this.projectRef.once('value', (projectName)=> {
-      let nameVal = projectName.val();
-      this.setState({projectName: nameVal.projectName});
-    });
+      let nameVal = projectName.val()
+      this.setState({projectName: nameVal.projectName})
+    })
 
     //get directory items needs to improve
     this.projectRef.on('child_added', (item)=> {
       if(this.state.projectDirectory[item.key()]){
-        return;
+        return
       }
 
-      let itemVal = item.val();
-      itemVal.key = item.key();
-      this.state.projectDirectory[itemVal.key] = itemVal;
-      this.setState({projectDirectory: this.state.projectDirectory});
-    });
+      let itemVal = item.val()
+      itemVal.key = item.key()
+      this.state.projectDirectory[itemVal.key] = itemVal
+      this.setState({projectDirectory: this.state.projectDirectory})
+    })
 
-    this.handleToggle = this.handleToggle.bind(this);
+    this.handleToggle = this.handleToggle.bind(this)
   }
-  //pull firebase info before rendering anything, at least the once value thing
 
+  //pull firebase info before rendering anything, at least the once value thing
   handleToggle (folderName){
-    let oldVal = this.state.isOpen[folderName];
-    let newState = this.state.isOpen;
-    newState[folderName] = oldVal ? false : true;
+    let oldVal = this.state.isOpen[folderName]
+    let newState = this.state.isOpen
+    newState[folderName] = oldVal ? false : true
     this.setState({
       isOpen: newState
     })
   }
-
 
   render(){
     return (
@@ -60,7 +58,7 @@ class FileTree extends React.Component {
         border-right: 2px solid #0FB427;
         height:100%;
         background-color:#37383A;
-        color: white;
+        color: whitesmoke;
         border-bottom-left-radius: 3px;
         border-top-left-radius: 3px;
       }
@@ -80,3 +78,4 @@ class FileTree extends React.Component {
 }
 
 export default FileTree;
+

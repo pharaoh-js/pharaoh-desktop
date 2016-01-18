@@ -11,16 +11,16 @@ const Mirror = React.createClass({
       { defaultText: 'Hello Firepad!!!!' });
   },
   // TODO: prevent re-render except when ref or config changes
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('current: ', this.props.config.theme);
-    console.log('next: ', nextProps.config.theme);
-    if (this.props.pad !== nextProps.pad) {
-      return true
-    } else if ( this.props.config.theme !== nextProps.config.theme) {
-      return true
-    }
-    return false
-  },
+    shouldComponentUpdate(nextProps, nextState) {
+      console.log('current: ', this.props.config.theme);
+      console.log('next: ', nextProps.config.theme);
+      if (this.props.pad !== nextProps.pad) {
+        return true
+      } else if ( this.props.config.theme !== nextProps.config.theme) {
+        return true
+      }
+     return false
+   },
   componentDidUpdate () {
     let parent = this.refs.parent
     let child = parent.firstChild
@@ -40,3 +40,4 @@ const Mirror = React.createClass({
 })
 
 export default Mirror
+

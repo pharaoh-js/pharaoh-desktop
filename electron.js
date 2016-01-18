@@ -1,20 +1,21 @@
 var app           = require('app')
   , BrowserWindow = require('browser-window')
   , path          = require('path')
-  , menu          = require('menu') // reporting crashes to server
+  , menu          = require('menu')
+
+// reporting crashes to server
 require('crash-reporter').start()
 
 // allows for remote devtools, in the browser (or whatever)
 // app.commandLine.appendSwitch('remote-debugging-port', '9191')
 // app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
-
 // show devtools if we're in dev
-// if(process.env.NODE_ENV === 'dev'){
-//   require('electron-debug')({
-//     showDevTools: true
-//   })
-// devHelper.setDevMenu()
-// }
+if(process.env.NODE_ENV === 'dev'){
+  require('electron-debug')({
+    showDevTools: true
+  })
+devHelper.setDevMenu()
+}
 
 // basics of a menu
 var menuTemplate = [{
@@ -85,7 +86,7 @@ app.on('ready', function(){
   mainWindow.loadUrl('http://127.0.0.1:9090')
 
   // open devtools
-  mainWindow.openDevTools()
+  // mainWindow.openDevTools()
 
   // emitted when window is closed
   // if we have multiple windows, we'd be storing them in an array;

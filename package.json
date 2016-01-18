@@ -9,7 +9,7 @@
     "dev": "./node_modules/.bin/webpack-dev-server --noInfo --port 9090 --hot --inline",
     "app": "./node_modules/.bin/electron electron.js",
     "lint": "node node_modules/.bin/eslint -c .eslintrc src/**",
-    "release": "electron-packager . Pharaoh --platform=all --arch=all --version 0.36.3 --out=./binaries"
+    "release": "electron-packager . Pharaoh --platform=all --arch=all --version 0.36.4 --out=./binaries"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,6 @@
   },
   "homepage": "https://github.com/pharaoh-js/pharaoh-electron#readme",
   "dependencies": {
-    "electron-debug": "^0.5.1",
     "electron-prebuilt": "^0.36.4",
     "firebase": "^2.3.2",
     "firepad": "^1.3.0",
@@ -53,8 +52,8 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "css-loader": "^0.23.1",
+    "electron-debug": "^0.5.1",
     "electron-packager": "^5.2.0",
-    "electron-prebuilt": "^0.36.3",
     "eslint": "^1.10.3",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^3.14.0",

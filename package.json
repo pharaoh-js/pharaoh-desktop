@@ -1,13 +1,22 @@
 {
-  "name": "pharaoh",
-  "version": "0.1.5",
+  "name": "pharaoh-nwjs",
+  "version": "0.1.0",
   "description": "The front-end for a live code broadcasting app.",
-  "main": "index.js",
+  "main": "http://127.0.0.1:9090",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "go": "npm-start",
     "start": "webpack-dev-server --noInfo --port 9090 --hot --inline --open",
     "lint": "node node_modules/.bin/eslint -c .eslintrc src/**"
+  },
+  "window": {
+    "title": "pharaoh",
+    "icon": "icon.png",
+    "toolbar": true,
+    "frame": false,
+    "width": 1600,
+    "height": 900,
+    "position": "mouse"
   },
   "repository": {
     "type": "git",

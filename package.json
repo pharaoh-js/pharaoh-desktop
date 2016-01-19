@@ -4,10 +4,10 @@
   "description": "The front-end for a live code broadcasting app.",
   "main": "http://127.0.0.1:9090",
   "scripts": {
-    "start": "npm run dev & npm run app",
     "dev": "./node_modules/.bin/webpack-dev-server --quiet --port 9090 --hot --inline",
     "app": "./node_modules/.bin/nwjs",
-    "lint": "node node_modules/.bin/eslint -c .eslintrc src/**"
+    "lint": "./node node_modules/.bin/eslint -c .eslintrc src/**",
+    "start": "npm run dev & npm run app"
   },
   "window": {
     "title": "Pharaoh",

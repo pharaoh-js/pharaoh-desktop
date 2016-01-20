@@ -13,7 +13,7 @@
     "title": "Pharaoh",
     "icon": "icon.png",
     "toolbar": true,
-    "frame": false,
+    "frame": true,
     "single-instance": false,
     "width": 1600,
     "height": 900,

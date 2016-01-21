@@ -6,7 +6,7 @@ const TitleBar = React.createClass({
   render() {
     let icon = this.props.isSetting
       ? ''
-      : <img src='src/shared/images/settings-icon.png' style={{
+      : <img src='images/settings-icon.png' style={{
         width: '22px'
       }}></img>
     let handleClick = this.props.isSetting ? this.props.hideSettings : this.props.showSettings

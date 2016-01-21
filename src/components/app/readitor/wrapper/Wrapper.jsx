@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react'
-import Mirror               from './mirror/Mirror'
-import Settings             from './settings/Settings'
+import React, {PropTypes} from 'react'
+import Mirror             from './mirror/Mirror'
+import Settings           from './settings/Settings'
 
 
 const Wrapper = React.createClass({
@@ -27,3 +27,4 @@ const Wrapper = React.createClass({
 })
 
 export default Wrapper
+

@@ -6,9 +6,12 @@ const Options = React.createClass({
   render () {
     let themes = this.props.themes.map((theme, i)=> {
       return (
-        <div className="option" onClick={this.props.updateSettings.bind(null, 'theme', theme)} key={i}>
+        <div
+          className="option"
+          onClick={this.props.updateSettings.bind(null, 'theme', theme)}
+          key={i}>
           <div>
-            - {theme}
+            &mdash; {theme}
           </div>
         </div>
       )

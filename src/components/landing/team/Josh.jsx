@@ -7,22 +7,22 @@ const Josh = React.createClass({
     return (
       <InlineCss componentName="Card" stylesheet={stylesheet}>
         <div>
-          <img src="https://www.junkfreejune.org.nz/themes/base/production/images/default-profile.png" className="card-pic"/>
+          <img src="https://avatars3.githubusercontent.com/u/8573827?v=3&s=400" className="card-pic"/>
         </div>
         <big>Joshua Leduc</big>
         <p>
-          I am young Full Stack dev excited about learning more. MEAN stack, React, and CSS.
+          Full Stack dev. Code is life. Tech. MEAN stack, React, Javascript, Firebase.
         </p>
          <li>
           <a className="links" href="">WWW</a>
         </li>
- <li>
+         <li>
           <a className="links" href="https://github.com/joshualeduc">Github</a>
         </li>
         <li>
           <a className="links" href="https://www.linkedin.com/in/joshualeduc">LinkedIn</a>
         </li>
-            </InlineCss>
+      </InlineCss>
     )
   }
 })

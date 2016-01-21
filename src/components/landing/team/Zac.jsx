@@ -11,7 +11,7 @@ const Zac = React.createClass({
         </div>
         <big>Zac Anger</big>
         <p>
-          Musician, nix hacker, and Javascript developer passionate about OSS & web technologies.
+          Musician, nix hacker, and Javascript developer passionate about OSS &amp; web technologies.
         </p>
          <li>
           <a className="links" href="http://zacanger.com">WWW</a>
@@ -22,7 +22,7 @@ const Zac = React.createClass({
         <li>
           <a className="links" href="https://twitter.com/@zacanger">@zacanger</a>
         </li>
-             </InlineCss>
+      </InlineCss>
     )
   }
 })

@@ -7,7 +7,7 @@ const Mirror = React.createClass({
     let fpRef = new Firebase(BASEREF + subRef)
     let codeMirror = CodeMirror(document.getElementById('pad'), config)
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
-      { defaultText: 'Your new canvas awaits' })
+      { defaultText: 'Your new canvas awaits!' })
   },
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.pad !== nextProps.pad) {
@@ -36,3 +36,4 @@ const Mirror = React.createClass({
 })
 
 export default Mirror
+

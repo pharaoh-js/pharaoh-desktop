@@ -7,11 +7,11 @@ const Tanner = React.createClass({
     return (
       <InlineCss componentName="Card" stylesheet={stylesheet}>
         <div>
-          <img src="src/shared/images/tanner.jpg" className="card-pic"/>
+          <img src="images/tanner.jpg" className="card-pic"/>
         </div>
         <big>J. Tanner Porter</big>
         <p>
-          I am young Full Stack dev excited about development. MEAN stack, React, and CSS.
+          Athelte, Full Stack dev, excited about development. MEAN stack, React, and CSS/LESS.
         </p>
          <li>
           <a className="links" href="http://j-tannerporter.azurewebsites.net/">WWW</a>
@@ -28,3 +28,4 @@ const Tanner = React.createClass({
 })
 
 export default Tanner
+

@@ -12,12 +12,12 @@ const BASEURL = 'https://pharaohjs.firebaseio.com/session/'
 
 const Landing = React.createClass({
   initFirebase(projectName = 'Project Name') {
-    let ref = new Firebase(BASEURL);
+    let ref = new Firebase(BASEURL)
     let projectRef = ref.push({
       projectName : projectName,
       default: {fileName: 'gettingStarted.js', key: 'default'}
     })
-    return projectRef.key();
+    return projectRef.key()
   },
   startSession(projectName) {
     let key = this.initFirebase(projectName)
@@ -41,3 +41,4 @@ const Landing = React.createClass({
 })
 
 export default Landing
+

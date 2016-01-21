@@ -11,7 +11,11 @@ const Settings = React.createClass({
         <div className="settings">
           <div className="settings-tab"><span>
             <small onClick={handleClick}>
-              <img onClick={this.props.hideSettings} src="src/shared/images/closeicon.svg" style={{width:'10px',marginRight:'10px'}}></img>
+              <img
+                onClick={this.props.hideSettings}
+                src="images/closeicon.svg"
+                style={{width:'10px',marginRight:'10px'}}
+              />
             </small>
             Settings
           </span></div>

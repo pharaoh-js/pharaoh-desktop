@@ -13,25 +13,39 @@ const Header = React.createClass({
     } else {
       this.setState({invite: 'click'})
     }
+    let input = this.refs.textInput
+    console.log();
+    input.focus()
+    input.select()
   },
   render () {
     return (
       <InlineCss componentName="Header" stylesheet={stylesheet}>
-          <div className="header">
-            <div>
-              <Link className="title" to={"/"}>PHARAOH</Link>
-               <div className={this.state.invite}>
-                <div onClick={this.toggleCopying}>
-                  <img src='src/shared/images/people.png' style={{width: '22px'}}></img>
-                </div>
-                <input type="text" readOnly="true" value={'http://pharaoh.js.org/' + this.props.projectKey} />
-                <button className="btn" data-clipboard-target={'http://pharaoh.js.org/' + this.props.projectKey}>
-                  <i className="fa fa-clipboard"></i>
-                </button>
-                <img src='src/shared/images/people.png' style={{width: '22px'}} />
+        <div className="header">
+          <div>
+            <Link className="title" to={"/"}>Pharaoh</Link>
+            <img src="images/pharaoh.png" style={{
+              width: '50px',
+              position: 'absolute',
+              top: '2px',
+              left:'12.5%'
+              }}
+            />
+            <div className={this.state.invite}>
+              <div className="share" onClick={this.toggleCopying}>
+                <span className="text">Invite participants:</span>
+                <img src='images/people.png' style={{width: '40px'}}></img>
               </div>
+              <input
+                ref="textInput"
+                className="copyURL"
+                type="text"
+                readOnly="true"
+                value={'http://pharaoh.js.org/' + this.props.projectKey}
+              />
             </div>
           </div>
+        </div>
       </InlineCss>
     )
   }

@@ -1,3 +1,7 @@
+zip -r ../${PWD##*/}.nw *
+
+This makes a .nw (zip) for distribution
+
 * right now, these are the options i have available, working with nwjs:
   * notifications
   * context menu

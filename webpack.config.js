@@ -13,7 +13,7 @@ module.exports = {
     filename          : 'bundle.js'
   , path              : __dirname + '/public'
   , sourceMapFilename : "[file].map"
-  , publicPath        : 'http://127.0.0.1:9090/public'
+  , publicPath        : 'http://pharaoh.js.org'
   },
   module: {
     loaders: [{

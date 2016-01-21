@@ -1,6 +1,6 @@
 {
   "name": "pharaoh-nwjs",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "The front-end for a live code broadcasting app.",
   "main": "http://127.0.0.1:9090",
   "scripts": {

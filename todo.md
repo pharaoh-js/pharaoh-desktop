@@ -6,7 +6,8 @@ OR
 when deployment is ready, let's work with that, because otherwise we'd need webpack and stuff running, which is
 annoying, yes? then, just:
 nwbuild -p win64,osx64,linux64 -v 0.12.3 -f .
-
+then, to turn this into an executable, just:
+cat `which nw` app.nw > app && chmod +x app
 
 * right now, these are the options i have available, working with nwjs:
   * notifications

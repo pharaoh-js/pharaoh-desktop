@@ -1,6 +1,12 @@
 zip -r ../${PWD##*/}.nw *
-
 This makes a .nw (zip) for distribution
+
+OR
+
+when deployment is ready, let's work with that, because otherwise we'd need webpack and stuff running, which is
+annoying, yes? then, just:
+nwbuild -p win64,osx64,linux64 -v 0.12.3 -f .
+
 
 * right now, these are the options i have available, working with nwjs:
   * notifications

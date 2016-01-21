@@ -130,28 +130,14 @@ This is just the ones I picked out that I thought could be useful to us.
 * --single-process
 * --slow (material design animations)
 * --site-per-process (one site per process)
-* --start-fullscreen
-* --start-maximized
 * --system-developer-mode (system in dev mode; probing done by session manager)
 * --top-chrome-md (enables md elements)
-* --top-controls-hide-threshold (percentage)
-* --top-controls-show-threshold
-* --touch-events (enable support for)
-* --try-chrome-again (lol, dialog asking user to try chrome, again....)
-* --uninstall
 * --unlimited-storage (for any apps/origins)
 * --unsafely-treat-insecure-origin-as-secure (also needs --user-data-dir specified)
 * --use-fake-device-for-media-stream
 * --use-fake-ui-for-media-stream
 * --use-file-for-fake-audio-capture (wav)
 * --use-file-for-fake-video-capture (y4m)
-* --use-mobile-user-agent
 * --use-simple-cache-backend (experimental cache backend, if possible)
-* --use-temporary-user-data-dir
-* --user-agent
-* --user-data-dir
-* --validate-crx examines a crx, prints results
 * --validate-input-event-stream
-* --wait-for-debugger (for 60 seconds, to attach to the process)
-* --warp (?)
 

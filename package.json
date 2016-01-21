@@ -2,12 +2,11 @@
   "name": "pharaoh-nwjs",
   "version": "0.3.0",
   "description": "The front-end for a live code broadcasting app.",
-  "main": "public/index.html",
+  "main": "http://pharaoh.js.org/",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --quiet --port 9090 --hot --inline",
-    "app": "./node_modules/.bin/nwjs",
-    "lint": "./node node_modules/.bin/eslint -c .eslintrc src/**",
-    "start": "webpack && npm run app"
+    "dev": "./node_modules/.bin/webpack-dev-server --quiet --port 9090 --hot --inline & ./node_modules/.bin/nwjs",
+    "start": "./node_modules/.bin/nwjs",
+    "lint": "./node node_modules/.bin/eslint -c .eslintrc src/**"
   },
   "window": {
     "title": "Pharaoh",

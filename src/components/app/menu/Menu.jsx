@@ -14,7 +14,6 @@ const Header = React.createClass({
       this.setState({invite: 'click'})
     }
     let input = this.refs.textInput
-    console.log();
     input.focus()
     input.select()
   },

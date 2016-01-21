@@ -104,7 +104,6 @@ const Viewer = React.createClass({
     let config = Object.assign({},this.state.cmConfig)
     config[prop] = val
     this.setState({ cmConfig:config })
-    console.log(prop,val)
   },
   render () {
     return (

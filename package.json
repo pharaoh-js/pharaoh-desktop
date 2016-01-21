@@ -2,7 +2,7 @@
   "name": "pharaoh-nwjs",
   "version": "0.3.0",
   "description": "The front-end for a live code broadcasting app.",
-  "main": "http://pharaoh.js.org",
+  "main": "./public/index.html",
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --quiet --port 9090 --hot --inline & ./node_modules/.bin/nwjs",
     "start": "./node_modules/.bin/nwjs",

@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="./firepad.min.css">
 </head>
 <body>
+  <input type="file" onchange="loadfile(this)"> <a href="javascript:void(0)" onclick="saveTextAsFile()">save</a>
   <div id="root"></div>
   <script type="text/javascript" src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
   <script type="text/javascript"
@@ -15,6 +16,36 @@
   <script type="text/javascript" src="./cm.min.js"></script>
   <script type="text/javascript" src="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js"></script>
   <script type="text/javascript" src="./bundle.js"></script>
+  <script type="text/javascript">
+    function saveTextAsFile(){
+      var textToWrite      = document.getElementById('codeMirror').value
+        , textFileAsBlob   = new Blob([textToWrite], {type: 'text/plain'})
+        , fileNameToSaveAs = 'foo.js'
+        , downloadLink     = document.createElement('a')
+      downloadLink.download = fileNameToSaveAs
+      downloadLink.innerHTML = 'save file'
+      if(window.webkitURL != null){
+        downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob)
+      } else {
+        downloadLink.href = window.URL.createObjectURL(textFileAsBlob)
+        downloadLink.onclick = destroyClickedElement
+        downloadLink.style.display = 'none'
+        document.body.appendChild(downloadLink)
+      }
+      downloadLink.click()
+    }
+    function destroyClickedElement(event){
+      document.body.removeChild(even.target)
+    }
+
+    function loadFile(input){
+    var reader = new FileReader()
+    reader.onload = function(e){
+      codeMirror.setValue(e.target.result)
+    }
+    reader.readAsText(input.files[0])
+  }
+  </script>
 </body>
 </html>
 

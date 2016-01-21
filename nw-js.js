@@ -1,8 +1,4 @@
-var newButton, openButton, saveButton
-  , editor
-  , menu
-  , fileEntry
-  , hasWriteAccess
+var newButton, openButton, saveButton, editor, menu, fileEntry, hasWriteAccess
   , gui       = require('nw.gui')
   , fs        = require('fs')
   , clipboard = gui.Clipboard.get()

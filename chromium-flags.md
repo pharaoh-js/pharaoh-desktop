@@ -15,19 +15,9 @@ This is just the ones I picked out that I thought could be useful to us.
 * --diagnostics (a whole slew of diagnostic modes)
 * --dispable-dinosaur-easter-egg (the offline animation thing)
 * --disable-download-notification
-* --disable-file-system (api)
 * --disable-infobars
-* --disable-icon-ntp
-* --disable-local-storage
 * --disable-logging
 * --disable-low-end-device-mode
-* --disable-md-downloads (the material design chrome://downloads)
-* --disable-new-bookmark-apps
-* --disable-new-channel-switcher
-* --disable-new-kiosk-ui
-* --disable-new-profile-management
-* --disable-new-task-manager
-* --disable-new-zip-unpacker (which is based on the filesystem provider api)
 * --disable-notifications
 * --disable-ntp-favicons
 * --disable-ntp-popular-sites
@@ -130,8 +120,6 @@ This is just the ones I picked out that I thought could be useful to us.
 * --renderer (instead of running as browser)
 * --restore-last-session
 * --restrict-iframe-permissions (all iframes, all permissions)
-* --rtl
-* --save-page-as-mhtml (no longer any html-only or html-complete)
 * --scripts-require-action (requires user consent for extensions running scripts)
 * --scroll-end-effect (vertical overscroll). 0 is default (disabled); 1 to enable.
 * --show-app-list
@@ -166,6 +154,4 @@ This is just the ones I picked out that I thought could be useful to us.
 * --validate-input-event-stream
 * --wait-for-debugger (for 60 seconds, to attach to the process)
 * --warp (?)
-* --watcher (runs as watcher process)
-* --window-position (=x,y)
-* --window-size (=w,h)
+

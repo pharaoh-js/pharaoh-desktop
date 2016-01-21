@@ -19,6 +19,7 @@
     "min_width": 400,
     "min_height": 300,
     "position": "center",
+    "js-flags": "--remote-debugging-port=9876",
     "dom_storage_quota": 64,
     "as_desktop": true
   },

@@ -1,17 +1,15 @@
 {
   "name": "pharaoh",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "A desktop app to interface with the Pharaoh live code broadcasting tool.",
   "main": "http://pharaoh.js.org",
+  "preferGlobal": true,
+  "bin": "./index.js",
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --quiet --port 9090 --hot --inline & ./node_modules/.bin/nwjs",
     "start": "./index.js",
     "lint": "./node node_modules/.bin/eslint -c .eslintrc src/**"
   },
-  "bin": {
-    "index.js"
-  },
-  "preferGlobal": true,
   "window": {
     "title": "Pharaoh",
     "icon": "icon.png",

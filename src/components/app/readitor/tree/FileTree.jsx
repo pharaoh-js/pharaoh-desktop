@@ -1,6 +1,7 @@
 import React     from 'react'
 import Folder    from './Folder.jsx'
 import Firebase  from 'firebase'
+import UserInput from './UserInput'
 import _         from 'lodash'
 import InlineCss from 'react-inline-css'
 const stylesheet = require('!css!less!./fileTree.less').toString()
@@ -47,11 +48,16 @@ class FileTree extends React.Component {
       })
     }
 
-    this.firebaseRef   = new Firebase('https://pharaohjs.firebaseio.com/session')
-    this.refFromRouter = 'projectKey'
-    this.projectRef    = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`)
-    this.projectRef.once('value', (projectName)=> {
-      let projectSession = projectName.val()
+    this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session');
+    this.refFromRouter = this.props.projectKey || 'projectKey';
+
+    this.handleToggle = this.handleToggle.bind(this);
+    this.createFolder = this.createFolder.bind(this);
+  }
+  componentDidMount (){
+    this.projectRef = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`);
+    this.projectRef.once('value', (project)=> {
+      let projectSession = project.val()
       this.setState({projectName: projectSession.projectName})
     })
 
@@ -67,6 +73,8 @@ class FileTree extends React.Component {
   }
 
   createFolder (firebaseRef, componentRef){
+    if(this.props.role === 'r'){return}
+    this.props.showEdit()
     let ref = new Firebase(`${firebaseRef}/${componentRef}`)
     let parent = ref.key()
     let newFolderName = 'testFolder'
@@ -84,6 +92,8 @@ class FileTree extends React.Component {
   }
 
   createFile (firebaseRef, componentRef){
+    if(this.props.role === 'r'){return}
+    this.props.showEdit()
     let ref = new Firebase(`${firebaseRef}/${componentRef}`)
     let parent = ref.key()
     let newFileName = 'testFile.js'
@@ -102,11 +112,14 @@ class FileTree extends React.Component {
   }
 
   deleteItem (firebaseRef, componentRef){
+    if(this.props.role === 'r'){return}
     let ref = new Firebase(`${firebaseRef}/${componentRef}`)
     ref.set(null)
   }
 
-  updateItem (firebaseRef, componentRef, userInput){
+  updateItem (firebaseRef, componentRef){
+    if(this.props.role === 'r'){return}
+    this.props.showEdit()
     let ref = new Firebase(`${firebaseRef}/${componentRef}}`)
     if(ref.folderName){ref.set({folderName: userInput})}
     if(ref.fileName){ref.set({fileName: userInput})}
@@ -121,38 +134,45 @@ class FileTree extends React.Component {
     })
   }
 
-
   render(){
+      let editBox = this.props.isEditing ? <UserInput
+          isEditing={this.props.isEditing}
+          showEdit={this.props.showEdit}
+          hideEdit={this.props.hideEdit}
+        /> : null
+
     return (
-          <InlineCss componentName="FileTree" stylesheet={stylesheet}>
-            <div className="file-browser">
-              <div className="file-header">From url: {this.props.project}</div>
-              <div className="create-folder" onClick={this.createFolder.bind(this, this.firebaseRef, this.refFromRouter)}>
-                <img src="src/shared/images/createfolder.png"
-                  style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
-                  }}></img>
-                  create new folder
-              </div>
-              <div className="create-folder" onClick={this.createFile.bind(this, this.firebaseRef, this.refFromRouter)}>
-                <img src="src/shared/images/plus-icon.png"
-                  style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
-                  }}></img>
-                  create new file
-              </div>
-              <Folder
-                folder={this.state.projectDirectory}
-                handleToggle={this.handleToggle}
-                isOpen={this.state.isOpen}
-                createFile={this.createFile}
-                createFolder={this.createFolder}
-                deleteItem={this.deleteItem}
-                updateItem={this.updateItem}
-                root={true}
-                swapDoc={this.props.swapDoc}
-                setMode={this.props.setMode}
-                firebaseRef={this.firebaseRef}
-                firebaseComponentPath={this.refFromRouter}
-              />
+      <InlineCss componentName="FileTree" stylesheet={stylesheet}>
+        <div className="file-browser">
+          <div className="file-header">{this.state.projectName}</div>
+          <div className={this.props.role === 'w' ? 'create-folder' :'hide-tree'} onClick={this.createFolder.bind(this, this.firebaseRef, this.refFromRouter)}>
+            <img src="src/shared/images/createfolder.png"
+              style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
+              }}></img>
+              create new folder
+          </div>
+          <div className={this.props.role === 'w' ? 'create-folder' :'hide-tree'} onClick={this.createFile.bind(this, this.firebaseRef, this.refFromRouter)}>
+            <img src="src/shared/images/plus-icon.png"
+              style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
+              }}></img>
+              create new file
+          </div>
+          <Folder
+            folder={this.state.projectDirectory}
+            handleToggle={this.handleToggle}
+            isOpen={this.state.isOpen}
+            createFile={this.createFile}
+            createFolder={this.createFolder}
+            deleteItem={this.deleteItem}
+            updateItem={this.updateItem}
+            root={true}
+            swapDoc={this.props.swapDoc}
+            setMode={this.props.setMode}
+            firebaseRef={this.firebaseRef}
+            firebaseComponentPath={this.refFromRouter}
+            role={this.props.role}
+          />
+        {editBox}
         </div>
       </InlineCss>
     )

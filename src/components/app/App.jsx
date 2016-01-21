@@ -6,16 +6,19 @@ const App = React.createClass({
   getInitialState () {
     return {project: 'sandbox'}
   },
-  componentDidMount () {
-    const project = this.props.params.project
-    this.setState({ project: project })
+  componentWillMount() {
+    this.role = this.props.params.role
+    this.projectKey = this.props.params.project;
   },
   render () {
     return (
-        <div>
-          <Menu />
-          <Readitor project={this.state.project}/>
-        </div>
+      <div>
+        <Menu />
+        <Readitor
+          projectKey={this.projectKey}
+          role={this.role}
+          />
+      </div>
     )
   }
 })

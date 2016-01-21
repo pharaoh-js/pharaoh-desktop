@@ -4,7 +4,6 @@ import Wrapper   from './wrapper/Wrapper'
 import StatusBar from './statusbar/Statusbar'
 import TitleBar  from './titlebar/Titlebar'
 import Tree      from './tree/FileTree.jsx'
-
 const stylesheet = require('!css!less!./readitor.less').toString()
 
 const cmConfig = {
@@ -14,7 +13,6 @@ const cmConfig = {
   , lineNumbers       : true
   , matchBrackets     : true
   , lineWrapping      : true
-  // , keyMap            : 'sublime'
   , autoCloseBrackets : true
   , autoCloseTags     : true
   }
@@ -26,11 +24,9 @@ const cmConfig = {
   , 'abcdef'
   , 'base16-dark'
   , 'base16-light'
-  , 'solarized-light'
-  , 'solarized-dark'
   , 'tomorrow-night-eighties'
-  , 'tomorrow-night-bright'
   , 'zenburn'
+  , 'zeemirror'
   ]
 
   const modeObj = {
@@ -67,14 +63,14 @@ const Viewer = React.createClass({
     }
   },
   modeFromFilename(fileName) {
-   let arr = fileName.split('.')
-   let ext = arr[arr.length-1]
-   return modeObj[ext]
- },
- setMode(fileName) {
-   let mode = this.modeFromFilename(fileName)
-   this.updateSettings('mode', mode)
- },
+    let arr = fileName.split('.')
+    let ext = arr[arr.length-1]
+    return modeObj[ext]
+  },
+  setMode(fileName) {
+    let mode = this.modeFromFilename(fileName)
+    this.updateSettings('mode', mode)
+  },
   showSettings () {
     this.setState({ isSetting: true })
     // document.addEventListener("click", this.hideSettings);
@@ -121,3 +117,4 @@ const Viewer = React.createClass({
   })
 
 export default Viewer
+

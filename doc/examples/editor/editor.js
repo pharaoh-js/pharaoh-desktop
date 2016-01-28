@@ -163,3 +163,4 @@ onresize = function(){
   scrollerElement.style.height = containerHeight + 'px'
   editor.refresh()
 }
+

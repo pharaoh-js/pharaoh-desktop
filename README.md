@@ -1,12 +1,11 @@
 # [PHARAOH](http://pharaoh.js.org)
 
-We're a group of students at [DevMountain](https://github.com/devmountain), building just about the neatest instructor tool you've ever seen. Imagine a lecture with no JSBin or JSFiddle, with no opening the Developer Tools in your browser just to show something in the console, with no rushed projects thrown together and then sent out on Slack. Imagine a read-only app that would allow students to see your code in realtime, as you make changes, and see everything you `import` or `require`, and check out the files you're pulling from.
+This is the desktop app for Pharaoh, a project started by a group of students at [DevMountain](https://github.com/devmountain). Please see [our core repo](https://github.com/pharaoh-js/pharaoh.git) for more information on Pharaoh.
 
-Well, that's what we imagined, because right now there's a ton of tooling around Javascript development, but not nearly enough tools for teaching it. We're starting with a React-based student app and a package for one of the most popular editors on the market. We hope to build this into something pretty awesome, because no one should have to use JSBin, Github, and Slack, just to get through one lecture.
+This app is built on [NW.js](https://github.com/nwjs), using React and Firebase. To get started using Pharaoh, simply
+`npm i -g pharaoh`, and then run `pharaoh`. To get started hacking on it, `git clone
+https://github.com/pharaoh-js/pharaoh-desktop.git`, `cd pharaoh-desktop`, and `npm start`.
 
-This is the desktop app! It's built on NW.js, using React and Firepad. To get started using Pharaoh, simply `npm i -g
-pharaoh`, and then `pharaoh`. To get started _hacking_ on Pharaoh, `git clone
-https://github.com/pharaoh-js/pharaoh-desktop.git`, `cd pharaoh-desktop`, `npm i`, and then finally `npm start`.
-
-All PRs welcome!
+Any and all PRs welcome! Please check out [this directory](https://github.com/pharaoh-js/pharaoh-desktop/tree/nwjs/doc)
+and the [to-do list](https://github.com/pharaoh-js/pharaoh-desktop/blob/nwjs/doc/todo.md).
 

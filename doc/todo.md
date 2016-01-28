@@ -23,3 +23,5 @@
     * just a save option (as in traditional desktop editor)
     * constant streaming
 
+* I guess actually mention the licensing of things at some point, somewhere?
+

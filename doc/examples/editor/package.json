@@ -5,6 +5,9 @@
   "main": "index.html",
   "window": {
     "width": 700,
+    "icon": "icon.png",
+    "single-instance": false,
+    "position": "mouse",
     "height": 900,
     "show": false,
     "title": "editor",

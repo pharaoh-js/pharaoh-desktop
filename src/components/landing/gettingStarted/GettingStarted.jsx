@@ -18,7 +18,7 @@ const GettingStarted = React.createClass({
         <div className="container">
           <div className="header">Getting Started</div>
           <div className="option1">
-            <big> &mdash; Start new session using the browser editor.</big>
+            <big> Start a new session using the browser editor.</big>
             <img src="images/pharaohclient.png"></img>
             <div className="start-session">
               <big>Start new Session</big>
@@ -26,20 +26,21 @@ const GettingStarted = React.createClass({
                 <input
                   onChange={this.sessionNameChange}
                   style={{width:'60%'}}
-                  placeholder="Optional session name..." type="text"
+                  placeholder="optional session name" type="text"
                 />
-                <input className="btn" type="submit" value="Go" />
+                <input className="btn" type="submit" value="Go!" />
               </form>
-              <p>Launch Pharaoh browser-based editor and invite. Start a new session above, or join a session at the top of the page.
+              <p>Launch the browser-based Pharaoh editor and send invitations. Start a new session above, or join an existing session at the top of the page.
               </p>
             </div>
           </div>
           <div className="option1">
-            <big> &mdash; Or, install the Pharaoh desktop app.</big>
+            <big> Or, install the Pharaoh desktop app.</big>
             <img src="images/desktop.png"></img>
             <div className="desktop">
-              <span className="npmInstall">npm i -g pharaoh-nwjs</span>
-              <p>This option gives you the access to save files locally, recommended for instructors. Just install our desktop app using npm (see above).</p>
+              <span className="npmInstall">npm i -g pharaoh</span>
+              <p>Run Pharaoh from the desktop, and get the benefits of saving and opening your local files. Just install using NPM and run with the command <code className="command">pharaoh</code>.
+              </p>
             </div>
           </div>
         </div>

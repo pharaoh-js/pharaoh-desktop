@@ -99,7 +99,7 @@ class Folder extends React.Component {
           }
         })
 
-      var files = _.values(folderObj).map((folderItem, index)=> {
+      var files = _.values(folderObj).map((folderItem, index) => {
         if(folderItem.fileName){
           return (
             <File

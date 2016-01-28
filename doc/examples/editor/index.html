@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>editor</title>
+  <script type="text/javascript" src="zepto.min.js"></script>
+  <script type="text/javascript" src="editor.js"></script>
+  <script type="text/javascript" src="cm/lib/codemirror.js"></script>
+  <script type="text/javascript" src="cm/mode/css/css.js"></script>
+  <script type="text/javascript" src="cm/mode/xml/xml.js"></script>
+  <script type="text/javascript" src="cm/mode/javascript/javascript.js"></script>
+  <script type="text/javascript" src="cm/mode/htmlmixed/htmlmixed.js"></script>
+  <script type="text/javascript" src="cm/keymap/vim.js"></script>
+  <link type="text/css" rel="stylesheet" href="style.css">
+  <link type="text/css" rel="stylesheet" href="cm/lib/codemirror.css">
+  <link type="text/css" rel="stylesheet" href="cm/zemir.css">
+</head>
+<body>
+  <div class="buttons">
+  	<button id="new"> <img src="img/16x16/file_add.png">new  </button>
+  	<button id="open"><img src="img/16x16/file.png">    open </button>
+  	<button id="save"><img src="img/16x16/diskette.png">save </button>
+  </div>
+  <div id="editor"></div>
+  <div class="info">
+    <label>editing: </label><span id="title"></span>
+    <label>syntax: </label><span id="mode"></span>
+  </div>
+  <input style="display:none;" id="openFile" type="file">
+  <input style="display:none;" id="saveFile" type="file" nwsaveas>
+</body>
+</html>
+

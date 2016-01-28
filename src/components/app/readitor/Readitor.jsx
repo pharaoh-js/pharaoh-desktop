@@ -12,7 +12,7 @@ const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
 const cmConfig = {
   lineWrapping      : true
 , mode              : 'javascript'
-, theme             : 'default'
+, theme             : 'zeemirror'
 , lineNumbers       : true
 , matchBrackets     : true
 , lineWrapping      : true
@@ -60,7 +60,7 @@ const Viewer = React.createClass({
     let cmConfig = {
       lineWrapping      : true
     , mode              : 'javascript'
-    , theme             : 'default'
+    , theme             : 'zeemirror'
     , lineNumbers       : true
     , matchBrackets     : true
     , lineWrapping      : true

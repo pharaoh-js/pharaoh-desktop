@@ -7,7 +7,7 @@ const Zac = React.createClass({
     return (
       <InlineCss componentName="Card" stylesheet={stylesheet}>
         <div>
-          <img src="https://s3-us-west-1.amazonaws.com/devepprofiles%2Fzac%40zacanger.com/11188319_10152898699796446_2884929989969112153_n.jpg" className="card-pic"/>
+          <img src="https://avatars1.githubusercontent.com/u/12520493" className="card-pic"/>
         </div>
         <big>Zac Anger</big>
         <p>

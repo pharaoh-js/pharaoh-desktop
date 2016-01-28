@@ -1,4 +1,4 @@
-var newButton, openButton, saveButton, editor, menu, fileEntry, hasWriteAccess
+var openButton, saveButton, editor, menu, fileEntry, hasWriteAccess
   , gui       = require('nw.gui')
   , fs        = require('fs')
   , clipboard = gui.Clipboard.get()
@@ -32,12 +32,6 @@ function handleDocumentChange(title){
   }
   editor.setOption('mode', mode)
   document.getElementById('mode').innerHTML = modeName
-}
-
-function newFile(){
-  fileEntry      = null
-  hasWriteAccess = false
-  handleDocumentChange(null)
 }
 
 function setFile(theFileEntry, isWritable){
@@ -75,17 +69,6 @@ var onChosenFileToOpen = function(theFileEntry){
 var onChosenFileToSave = function(theFileEntry){
   setFile(theFileEntry, true)
   writeEditorToFile(theFileEntry)
-}
-
-function handleNewButton(){
-  if(false){
-    newFile()
-    editor.setValue('')
-  } else {
-    var x = window.screenX + 10
-      , y = window.screenY + 10
-    window.open('main.html', '_blank', 'screenX=' + x + ',screenY=' + y)
-  }
 }
 
 function handleOpenButton(){
@@ -133,11 +116,9 @@ function initContextMenu(){
 onload = function(){
   initContextMenu()
 
-  newButton  = document.getElementById('new')
   openButton = document.getElementById('open')
   saveButton = document.getElementById('save')
 
-  newButton.addEventListener('click', handleNewButton)
   openButton.addEventListener('click', handleOpenButton)
   saveButton.addEventListener('click', handleSaveButton)
 
@@ -158,7 +139,6 @@ onload = function(){
       , 'Ctrl-S' : function(instance){handleSaveButton()}
       }
     })
-  newFile()
   onresize()
   gui.Window.get().show()
 }

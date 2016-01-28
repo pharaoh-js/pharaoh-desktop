@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>codemirror-loads</title>
+  <!-- this version loads files, into codemirror, but on save it just
+       downloads the placeholder text (even when placeholder text is long gone).
+  -->
+  <script src='http://codemirror.net/lib/codemirror.js'></script>
+  <script src='http://codemirror.net/mode/javascript/javascript.js'></script>
+  <link rel='stylesheet' href='http://codemirror.net/lib/codemirror.css'>
+  <link rel='stylesheet' href='http://codemirror.net/doc/docs.css'>
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+         mode: 'javascript'
+       , lineNumbers: true
+       , lineWrapping: true
+       , autoCloseTags: true
+      })
+      function saveTextAsFile(){
+        var textToWrite = document.getElementById('code').value
+        var textFileAsBlob = new Blob([textToWrite], {
+          type: 'text/plain'
+        })
+        var fileNameToSaveAs = 'somefile.js'
+        var downloadLink = document.createElement('a')
+        downloadLink.download = fileNameToSaveAs
+        downloadLink.innerHTML = "save file"
+        if(window.webkitURL != null){ // chromium allows clicking links w/o adding to DOM
+            downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob)
+        } else { // firefox does not
+          downloadLink.href = window.URL.createObjectURL(textFileAsBlob)
+          downloadLink.onclick = destroyClickedElement
+          downloadLink.style.display = 'none'
+          document.body.appendChild(downloadLink)
+        }
+        downloadLink.click()
+      }
+      function destroyClickedElement(event){
+        document.body.removeChild(event.target)
+      }
+      function loadfile(input){
+        var reader = new FileReader()
+        reader.onload = function(e){
+          editor.setValue(e.target.result)
+        }
+        reader.readAsText(input.files[0])
+      }
+      var input = document.getElementById('select')
+      function selectTheme(){
+          var theme = input.options[input.selectedIndex].innerHTML
+          editor.setOption("theme", theme)
+      }
+      var choice = document.location.search && decodeURIComponent(document.location.search.slice(1))
+      if(choice){
+        input.value = choice
+        editor.setOption("theme", choice)
+      }
+  </script>
+</head>
+<body>
+  <textarea id="code" name="code">
+      var welcome = 'to ur'
+      function thang(){
+        return('bruh')
+  </textarea>
+  <input type="file" onchange="loadfile(this)">
+  <a href="#my-header" onclick='saveTextAsFile()'>download</a>
+</body>
+</html>

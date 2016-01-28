@@ -19,7 +19,7 @@ const Settings = React.createClass({
             </small>
             Settings
           </span></div>
-        <Options themes={this.props.themes} updateSettings={this.props.updateSettings}/>
+          <Options themes={this.props.themes} updateSettings={this.props.updateSettings} />
         </div>
       </InlineCss>
     )

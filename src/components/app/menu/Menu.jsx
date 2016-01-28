@@ -31,7 +31,6 @@ const Header = React.createClass({
               }}
             />
             <div className="buttons" style={{left: '30%', position: 'absolute'}}>
-              <button id="new">new</button>
               <button id="open">open</button>
               <button id="save">save</button>
             </div>

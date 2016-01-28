@@ -4,7 +4,7 @@ const stylesheet = require('!css!less!./options.less').toString()
 
 const Options = React.createClass({
   render () {
-    let themes = this.props.themes.map((theme, i)=> {
+    let themes = this.props.themes.map((theme, i) => {
       return (
         <div
           className="option"
@@ -22,7 +22,7 @@ const Options = React.createClass({
           <div className="head">Themes</div>
             {themes}
          </div>
-       </InlineCss>
+      </InlineCss>
     )
   }
 })

@@ -17,7 +17,7 @@ module.exports = {
     loaders: [{
         test          : /\.jsx$/
       , exclude       : /node_modules/
-      , loaders       : ['react-hot', 'babel']
+      , loaders       : ['babel']
       },
       {
         test          : /\.less$/
@@ -26,9 +26,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },

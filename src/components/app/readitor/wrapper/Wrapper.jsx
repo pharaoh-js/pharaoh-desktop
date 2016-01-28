@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react'
 import Mirror             from './mirror/Mirror'
 import Settings           from './settings/Settings'
 
-
 const Wrapper = React.createClass({
   handleClick (event) {
     let eNotClose = ['wrapper','settings']

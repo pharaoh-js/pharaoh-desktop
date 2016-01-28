@@ -13,8 +13,8 @@ var history = createHistory({
 ReactDOM.render(
   (
     <Router history={history}>
-      <Route path="/app/:role/:project" component={App}/>
-      <Route path="/" component={Landing}/>
+      <Route path="/app/:role/:project" component={App} />
+      <Route path="/" component={Landing} />
     </Router>
   ), document.getElementById('root'))
 

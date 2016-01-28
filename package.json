@@ -2,7 +2,7 @@
   "name": "pharaoh",
   "version": "0.5.5",
   "description": "A desktop app to interface with the Pharaoh live code broadcasting tool.",
-  "main": "public/index.html",
+  "main": "http://127.0.0.1:9876",
   "preferGlobal": true,
   "bin": "./index.js",
   "scripts": {

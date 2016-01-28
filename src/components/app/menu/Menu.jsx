@@ -30,12 +30,12 @@ const Header = React.createClass({
               left:'12.5%'
               }}
             />
-            <div className="buttons">
+            <div className="buttons" style={{left: '30%', position: 'absolute'}}>
               <button id="new">new</button>
               <button id="open">open</button>
               <button id="save">save</button>
             </div>
-            <div class="info">
+            <div className="info" style={{left: '60%', position: 'absolute'}}>
               <label>filename:</label><span id="title"></span>
               <label>mode:</label><span id="mode"></span>
             </div>

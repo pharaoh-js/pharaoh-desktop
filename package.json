@@ -1,11 +1,13 @@
 {
   "name": "pharaoh",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "description": "A desktop app to interface with the Pharaoh live code broadcasting tool.",
   "main": "./public/index.html",
   "preferGlobal": true,
   "bin": "./index.js",
   "scripts": {
+    "build": "./node_modules/.bin/webpack",
+    "release": "./node_modules/.bin/nwbuild -p win64,osx64,linux64 -f .",
     "start": "./index.js",
     "lint": "./node node_modules/.bin/eslint -c .eslintrc src/**"
   },
@@ -76,3 +78,4 @@
     "webpack": "^1.12.9"
   }
 }
+

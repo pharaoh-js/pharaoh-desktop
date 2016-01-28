@@ -5,9 +5,7 @@ var React   = require('react')
 module.exports = {
   devtool: 'cheap-module-eval-source-map'
 , entry: [
-    'webpack-dev-server/client?http://127.0.0.1:9090'
-  , 'webpack/hot/only-dev-server'
-  , './src/index.jsx'
+    './src/index.jsx'
   ],
   output: {
     filename          : 'bundle.js'

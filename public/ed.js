@@ -48,7 +48,7 @@ function setFile(theFileEntry, isWritable){
 function readFileIntoEditor(theFileEntry){
   fs.readFile(theFileEntry, function(err, data){
     if(err){
-      console.log('failed,' err)
+      console.log('failed', err)
     }
     handleDocumentChange(theFileEntry)
     editor.setValue(String(data))

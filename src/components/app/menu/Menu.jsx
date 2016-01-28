@@ -35,10 +35,6 @@ const Header = React.createClass({
               <button id="open">open</button>
               <button id="save">save</button>
             </div>
-            <div className="info" style={{left: '60%', position: 'absolute'}}>
-              <label>filename:</label><span id="title"></span>
-              <label>mode:</label><span id="mode"></span>
-            </div>
             <input style={{display: 'none'}} id="openFile" type="file" />
             <input style={{display: 'none'}} id="saveFile" type="file" />
             <div className={this.state.invite}>

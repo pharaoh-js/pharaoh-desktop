@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 var spawn = require('child_process').spawn
   , args  = ['-r', '.']
 args = args.concat(process.argv.slice(2))

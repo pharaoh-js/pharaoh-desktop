@@ -30,6 +30,12 @@ const Header = React.createClass({
               left:'12.5%'
               }}
             />
+            <div className="buttons" style={{left: '30%', position: 'absolute'}}>
+              <button id="open">open</button>
+              <button id="save">save</button>
+            </div>
+            <input style={{display: 'none'}} id="openFile" type="file" />
+            <input style={{display: 'none'}} id="saveFile" type="file" />
             <div className={this.state.invite}>
               <div className="share" onClick={this.toggleCopying}>
                 <span className="text">Invite participants:</span>

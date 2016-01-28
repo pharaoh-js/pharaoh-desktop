@@ -58,15 +58,19 @@ const Viewer = React.createClass({
   getInitialState () {
     let student = !!(this.props.role === 'r')
     let cmConfig = {
-      lineWrapping      : true
-    , mode              : 'javascript'
-    , theme             : 'zeemirror'
-    , lineNumbers       : true
-    , matchBrackets     : true
-    , lineWrapping      : true
-    , readOnly          : student
-    , autoCloseBrackets : true
-    , autoCloseTags     : true
+      lineWrapping       : true
+    , mode               : 'javascript'
+    , theme              : 'monokai'
+    , lineNumbers        : true
+    , matchBrackets      : true
+    , lineWrapping       : true
+    , tabSize            : 2
+    , undoDepth          : 1000
+    , autofocus          : true
+    , cursorScrollMargin : 2
+    , readOnly           : student
+    , autoCloseBrackets  : true
+    , autoCloseTags      : true
     }
     return {
       pad: `${this.props.projectKey}/default`

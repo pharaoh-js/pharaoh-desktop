@@ -59,11 +59,12 @@ const Header = React.createClass({
             <input style={{display: 'none'}} id="load" type="file" />
             <input style={{display: 'none'}} id="save" type="file" />
 
-          <div className="buttons" style={{left: '30%', position: 'absolute'}}>
-            <input type="file" onchange="load(this)" />
-            <a href="javascript:void(0)" onclick="save()">save</a>
-          </div>
-          <div className={this.state.invite}>
+            <div className="buttons" style={{left: '30%', position: 'absolute'}}>
+              <input type="file" onchange="load(this)" />
+              <a href="javascript:void(0)" onclick="save()">save</a>
+            </div>
+
+            <div className={this.state.invite}>
               <div className="share" onClick={this.toggleCopying}>
                 <span className="text">Invite participants:</span>
                 <img src='images/people.png' style={{width: '40px'}}></img>

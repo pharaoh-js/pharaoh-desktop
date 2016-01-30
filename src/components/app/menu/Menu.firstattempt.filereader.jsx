@@ -1,5 +1,5 @@
 import React              from 'react'
-import InlineCss          from "react-inline-css"
+import InlineCss          from 'react-inline-css'
 import { Link, IndexLink} from 'react-router'
 const stylesheet = require('!css!less!./header.less').toString()
 
@@ -17,6 +17,31 @@ const Header = React.createClass({
     input.focus()
     input.select()
   },
+  load(input){
+    let ed     = CodeMirror(document.getElementById('pad'), config)
+    let reader = new FileReader()
+    reader.onload = function(e){
+      ed.setValue(e.target.result)
+    }
+    reader.readAsText(input.files[0])
+  },
+  save(){
+    var textToWrite = document.getElementById('pad').value
+      , textBlob = new Blob([textToWrite], {type:'text/plain'})
+      , fileName = 'something'
+      , downloadLink = document.createElement('a')
+    downloadLink.download  = fileName
+    downloadLink.innerHTML = 'save'
+    if(window.webkitURL != null){
+      downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob)
+    } else {
+      downloadLink.href = window.URL.createObjectURL(textFileAsBlob)
+      downloadLink.onclick = destroyClickedElement
+      downloadlink.style.display = 'none'
+      document.body.appendChild(downloadLink)
+    }
+    downloadLink.click()
+  },
   render () {
     return (
       <InlineCss componentName="Header" stylesheet={stylesheet}>
@@ -30,6 +55,15 @@ const Header = React.createClass({
               left:'12.5%'
               }}
             />
+
+            <input style={{display: 'none'}} id="load" type="file" />
+            <input style={{display: 'none'}} id="save" type="file" />
+
+            <div className="buttons" style={{left: '30%', position: 'absolute'}}>
+              <input type="file" onchange="load(this)" />
+              <a href="javascript:void(0)" onclick="save()">save</a>
+            </div>
+
             <div className={this.state.invite}>
               <div className="share" onClick={this.toggleCopying}>
                 <span className="text">Invite participants:</span>
@@ -51,4 +85,3 @@ const Header = React.createClass({
 })
 
 export default Header
-

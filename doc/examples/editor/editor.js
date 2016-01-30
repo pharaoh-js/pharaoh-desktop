@@ -1,36 +1,36 @@
 var newButton, openButton, saveButton, editor, menu, fileEntry, hasWriteAccess
-  , gui = require("nw.gui")
-  , fs = require("fs")
+  , gui = require('nw.gui')
+  , fs = require('fs')
   , clipboard = gui.Clipboard.get()
 
-if (process.platform == "darwin"){ // for macs
-  var menu = new gui.Menu({type: "menubar"})
+if (process.platform == 'darwin'){ // for macs
+  var menu = new gui.Menu({type: 'menubar'})
   menu.createMacBuiltin && menu.createMacBuiltin(window.document.title)
   gui.Window.get().menu = menu
 }
 
 function handleDocumentChange(title){
-  var mode = "javascript"
-    , modeName = "JavaScript"
+  var mode = 'javascript'
+    , modeName = 'JavaScript'
   if(title){
     title = title.match(/[^/]+$/)[0]
-    document.getElementById("title").innerHTML = title
+    document.getElementById('title').innerHTML = title
     document.title = title
     if(title.match(/.json$/)){
-      mode = {name: "javascript", json: true}
-      modeName = "JavaScript (JSON)"
+      mode = {name: 'javascript', json: true}
+      modeName = 'JavaScript (JSON)'
     } else if(title.match(/.html$/)){
-      mode = "htmlmixed"
-      modeName = "HTML"
+      mode = 'htmlmixed'
+      modeName = 'HTML'
     } else if(title.match(/.css$/)){
-      mode = "css"
-      modeName = "CSS"
+      mode = 'css'
+      modeName = 'CSS'
     }
   } else {
-    document.getElementById("title").innerHTML = "[nothing loaded]"
+    document.getElementById('title').innerHTML = '[nothing loaded]'
   }
-  editor.setOption("mode", mode)
-  document.getElementById("mode").innerHTML = modeName
+  editor.setOption('mode', mode)
+  document.getElementById('mode').innerHTML = modeName
 }
 
 function newFile(){
@@ -47,7 +47,7 @@ function setFile(theFileEntry, isWritable){
 function readFileIntoEditor(theFileEntry){
   fs.readFile(theFileEntry, function(err, data){
     if(err){
-      console.log("reading error", err)
+      console.log('reading error', err)
     }
     handleDocumentChange(theFileEntry)
     editor.setValue(String(data))
@@ -58,11 +58,11 @@ function writeEditorToFile(theFileEntry){
   var str = editor.getValue()
   fs.writeFile(theFileEntry, editor.getValue(), function(err){
     if(err){
-      console.log("writing error", err)
+      console.log('writing error', err)
       return
     }
     handleDocumentChange(theFileEntry)
-    console.log("wrote.")
+    console.log('wrote.')
   })
 }
 
@@ -79,7 +79,7 @@ var onChosenFileToSave = function(theFileEntry){
 function handleNewButton(){
   if(false){
     newFile()
-    editor.setValue("")
+    editor.setValue('')
   } else {
     var x = window.screenX + 10
       , y = window.screenY + 10
@@ -87,13 +87,13 @@ function handleNewButton(){
   }
 }
 
-function handleOpenButton(){$("#openFile").trigger("click")}
+function handleOpenButton(){$('#openFile').trigger('click')}
 
 function handleSaveButton(){
   if (fileEntry && hasWriteAccess){
     writeEditorToFile(fileEntry)
   } else {
-    $("#saveFile").trigger("click")
+    $('#saveFile').trigger('click')
   }
 }
 
@@ -119,7 +119,7 @@ function initContextMenu(){
     }
   }))
 
-  document.getElementById("editor").addEventListener('contextmenu', function(ev){
+  document.getElementById('editor').addEventListener('contextmenu', function(ev){
     ev.preventDefault()
     menu.popup(ev.x, ev.y)
     return false
@@ -128,25 +128,25 @@ function initContextMenu(){
 
 onload = function(){
   initContextMenu()
-  newButton = document.getElementById("new")
-  openButton = document.getElementById("open")
-  saveButton = document.getElementById("save")
-  newButton.addEventListener("click", handleNewButton)
-  openButton.addEventListener("click", handleOpenButton)
-  saveButton.addEventListener("click", handleSaveButton)
+  newButton = document.getElementById('new')
+  openButton = document.getElementById('open')
+  saveButton = document.getElementById('save')
+  newButton.addEventListener('click', handleNewButton)
+  openButton.addEventListener('click', handleOpenButton)
+  saveButton.addEventListener('click', handleSaveButton)
 
-  $("#saveFile").change(function(evt){onChosenFileToSave($(this).val())})
-  $("#openFile").change(function(evt){onChosenFileToOpen($(this).val())})
+  $('#saveFile').change(function(evt){onChosenFileToSave($(this).val())})
+  $('#openFile').change(function(evt){onChosenFileToOpen($(this).val())})
 
   editor = CodeMirror(
-    document.getElementById("editor"), {
-      mode: {name: "javascript", json: true}
+    document.getElementById('editor'), {
+      mode: {name: 'javascript', json: true}
     , lineNumbers: true
-    , keyMap: "vim"
-    , theme: "zemir"
+    , keyMap: 'vim'
+    , theme: 'zemir'
     , extraKeys: {
-        "Cmd-S": function(instance){handleSaveButton()}
-      , "Ctrl-S": function(instance){ handleSaveButton()}
+        'Cmd-S': function(instance){handleSaveButton()}
+      , 'Ctrl-S': function(instance){ handleSaveButton()}
     }
   })
   newFile()
@@ -163,4 +163,3 @@ onresize = function(){
   scrollerElement.style.height = containerHeight + 'px'
   editor.refresh()
 }
-

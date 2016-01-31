@@ -11,18 +11,18 @@ function loadfile(input){
 
 // and saving one out
 function saveText(){
-  var textWrite = document.getElementById('code').value
+  var textWrite = document.getElementById('pad').value
     , textBlob  = new Blob([textToWrite], {type:'text/plain'})
-    , fileNameToSaveAs = // this.props.fileName ?
-    , downloadLink = document.createElement("a")
+    , fileNameToSaveAs = 'foo.js'
+    , downloadLink = document.createElement('a')
   downloadLink.download = fileNameToSaveAs
-  downloadLink.innerHTML = "save it!"
+  downloadLink.innerHTML = 'save'
   if(window.webkitURL != null){ // chromium lets click clink w/o adding to DOM
     downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob)
   } else { // mozilla does not
     downloadLink.href = window.URL.createObjectURL(textFileAsBlob)
     downloadLink.onclick = destroyClickedElement
-    downloadLink.style.display = "none"
+    downloadLink.style.display = 'none'
     document.body.appendChild(downloadLink)
   }
   downloadLink.click()
@@ -30,4 +30,3 @@ function saveText(){
 function destroyClickedElement(event){document.body.removeChild(event.target)}
 
 // <a href="#my-header" onclick='saveTextAsFile()'>download</a>
-

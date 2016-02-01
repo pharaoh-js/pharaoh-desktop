@@ -5,7 +5,10 @@ const stylesheet = require('!css!less!./settings.less').toString()
 
 const Settings = React.createClass({
   render() {
-  let handleClick = this.props.isSetting ? this.props.hideSettings : this.props.showSettings
+    let handleClick = this.props.isSetting ?
+      this.props.hideSettings :
+      this.props.showSettings
+
     return (
       <InlineCss componentName="Settings" stylesheet={stylesheet}>
         <div className="settings">
@@ -21,7 +24,10 @@ const Settings = React.createClass({
               Settings
             </span>
           </div>
-          <Options themes={this.props.themes} updateSettings={this.props.updateSettings} />
+          <Options
+            themes={this.props.themes}
+            updateSettings={this.props.updateSettings}
+          />
         </div>
       </InlineCss>
     )

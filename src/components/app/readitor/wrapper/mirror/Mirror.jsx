@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, {PropTypes} from 'react'
 const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
 
 const Mirror = React.createClass({
@@ -7,7 +7,7 @@ const Mirror = React.createClass({
     let fpRef = new Firebase(BASEREF + subRef)
     let codeMirror = CodeMirror(document.getElementById('pad'), config)
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
-      { defaultText: 'Your new canvas awaits!' })
+      {defaultText: 'function foo(){\n  return \'bar!\'\n}\n'})
   },
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.pad !== nextProps.pad) {

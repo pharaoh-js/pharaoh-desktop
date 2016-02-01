@@ -7,12 +7,12 @@ const Mirror = React.createClass({
     let fpRef = new Firebase(BASEREF + subRef)
     let codeMirror = CodeMirror(document.getElementById('pad'), config)
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
-      {defaultText: 'function foo(){\n  return \'bar!\'\n}\n'})
+      {defaultText: 'your canvas awaits'})
   },
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.pad !== nextProps.pad) {
       return true
-    } else if ( this.props.config.theme !== nextProps.config.theme) {
+    } else if (this.props.config.theme !== nextProps.config.theme) {
       return true
     }
     return false

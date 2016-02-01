@@ -9,17 +9,6 @@ const stylesheet = require('!css!less!./readitor.less').toString()
 
 const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
 
-const cmConfig = {
-  lineWrapping      : true
-, mode              : 'javascript'
-, theme             : 'abcdef'
-, lineNumbers       : true
-, matchBrackets     : true
-, lineWrapping      : true
-, autoCloseBrackets : true
-, autoCloseTags     : true
-}
-
 const themeNames = [
   'default'
 , 'monokai'

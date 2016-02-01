@@ -17,25 +17,6 @@ const Header = React.createClass({
     input.focus()
     input.select()
   },
-  loadfile(input){
-    var reader = new FileReader()
-    reader.onload = function(e){
-      document.getElementById('pad').value = e.target.result
-    }
-    reader.readAsText(input.files[0])
-  },
-  save(){
-    var textToWrite  = document.getElementById('pad').value
-      , textBlob     = new Blob([textToWrite], {type:'text/plain'})
-      , fileName     = 'foo.js'
-      , downloadLink = document.createElement('a')
-    downloadLink.download      = filename
-    downloadLink.innerHTML     = 'save'
-    downloadLink.href          = window.URL.createObjectURL(textFileAsBlob)
-    downloadLink.onclick       = destroyClickedElement
-    downloadLink.style.display = 'none'
-    document.body.appendChild(downloadLink)
-  },
   render () {
     return (
       <InlineCss componentName="Header" stylesheet={stylesheet}>
@@ -49,21 +30,17 @@ const Header = React.createClass({
               left:'12.5%'
               }}
             />
-            <div className="buttons" style={{left:'30%', position:'absolute'}}>
-              <input type="file" onchange="loadfile(this)" />
-              <a href="#" onclick="save()">save</a>
-            </div>
             <div className={this.state.invite}>
               <div className="share" onClick={this.toggleCopying}>
                 <span className="text">Invite participants:</span>
-                <img src='images/people.png' style={{width: '40px'}}></img>
+                <img src='images/people.png' style={{width: '40px'}} />
               </div>
               <input
                 ref="textInput"
                 className="copyURL"
                 type="text"
                 readOnly="true"
-                value={'http://pharaoh.js.org/' + this.props.projectKey}
+                value={'http://pharaoh.js.org/app/r/' + this.props.projectKey}
               />
             </div>
           </div>
@@ -75,3 +52,6 @@ const Header = React.createClass({
 
 export default Header
 
+// <button className="btn" data-clipboard-target={'http://pharaoh.js.org/' + this.props.projectKey}>
+//   <i className="fa fa-clipboard"></i>
+// </button>

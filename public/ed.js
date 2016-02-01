@@ -1,6 +1,8 @@
 var openButton, saveButton, editor, fileEntry, hasWriteAccess
   , fs        = require('fs')
 
+require('nw.gui').Window.get().showDevTools()
+
 function setFile(theFileEntry, isWritable){
   fileEntry      = theFileEntry
   hasWriteAccess = isWritable

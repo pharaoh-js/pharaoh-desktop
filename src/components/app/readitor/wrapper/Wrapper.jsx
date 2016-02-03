@@ -26,7 +26,7 @@ const Wrapper = React.createClass({
           height: '100%',
           position: 'relative',
           left:'19%',
-          width:'81%'
+          width:'81%',
         }}>
         {mirror}
         {settings}

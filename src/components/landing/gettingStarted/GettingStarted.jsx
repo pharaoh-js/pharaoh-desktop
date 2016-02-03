@@ -1,5 +1,6 @@
 import React     from 'react'
 import InlineCss from 'react-inline-css'
+
 const stylesheet = require('!css!less!./gettingStarted.less').toString()
 
 const GettingStarted = React.createClass({
@@ -30,7 +31,8 @@ const GettingStarted = React.createClass({
                 />
                 <input className="btn" type="submit" value="Go!" />
               </form>
-              <p>Launch the browser-based Pharaoh editor and send invitations. Start a new session above, or join an existing session at the top of the page.
+              <p>Launch the browser-based Pharaoh editor and send invitations.
+                Start a new session above, or join an existing session at the top of the page.
               </p>
             </div>
           </div>
@@ -39,7 +41,8 @@ const GettingStarted = React.createClass({
             <img src="images/desktop.png"></img>
             <div className="desktop">
               <span className="npmInstall">npm i -g pharaoh</span>
-              <p>Run Pharaoh from the desktop, and get the benefits of saving and opening your local files. Just install using NPM and run with the command <code className="command">pharaoh</code>.
+              <p>Run Pharaoh from the desktop, and get the benefits of saving and opening your local files.
+                Just install using NPM and run with the command <code className="command">pharaoh</code>.
               </p>
             </div>
           </div>

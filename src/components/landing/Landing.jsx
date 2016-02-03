@@ -6,9 +6,9 @@ import Team           from './team/Team'
 import Stack          from './stack/Stack'
 import GettingStarted from './gettingStarted/GettingStarted'
 import Firebase       from 'firebase'
-const stylesheet = require('!css!less!./landing.less').toString()
 
-const BASEURL = 'https://pharaohjs.firebaseio.com/session/'
+const stylesheet = require('!css!less!./landing.less').toString()
+const BASEURL    = 'https://pharaohjs.firebaseio.com/session/'
 
 const Landing = React.createClass({
   initFirebase(projectName = 'Project Name') {

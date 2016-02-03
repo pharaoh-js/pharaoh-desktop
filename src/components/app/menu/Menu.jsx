@@ -55,3 +55,4 @@ export default Header
 // <button className="btn" data-clipboard-target={'http://pharaoh.js.org/' + this.props.projectKey}>
 //   <i className="fa fa-clipboard"></i>
 // </button>
+

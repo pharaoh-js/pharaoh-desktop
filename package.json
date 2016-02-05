@@ -1,6 +1,6 @@
 {
   "name": "pharaoh",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "A desktop app to interface with the Pharaoh live code broadcasting tool.",
   "main": "./public/index.html",
   "preferGlobal": true,

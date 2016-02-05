@@ -6,7 +6,10 @@
   "preferGlobal": true,
   "bin": "./index.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack",
+    "clean": "rm public/bundle.js",
+    "build": " npm run clean && ./node_modules/.bin/webpack",
+    "server": "./node_modules/.bin/luvi -r ./public",
+    "browser": "npm run build && npm run server",
     "release": "./node_modules/.bin/nwbuild -p win64,osx64,linux64 -f .",
     "prestart": "npm run build",
     "start": "./index.js",
@@ -75,8 +78,8 @@
     "eslint-plugin-react": "^3.14.0",
     "less": "^2.5.3",
     "less-loader": "^2.2.2",
+    "luvi": "^0.6.9",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9"
   }
 }
-

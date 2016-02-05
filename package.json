@@ -6,7 +6,7 @@
   "preferGlobal": true,
   "bin": "./index.js",
   "scripts": {
-    "clean": "rm public/bundle.js",
+    "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
     "build": " npm run clean && ./node_modules/.bin/webpack",
     "lint": "./node node_modules/.bin/eslint -c .eslintrc src/**",
     "server": "./node_modules/.bin/luvi -r ./public",

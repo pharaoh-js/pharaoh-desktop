@@ -1,5 +1,7 @@
 * immediate:
   * `fileReader` for reading in/saving out files
+    * `firepad.getText()` (and `setText()`, and same with HTML) -- use on event to write to fs
+    * codemirror's `doc.getValue()` and `.setValue`??
   * better bundling
     * `nwjs` is out.
     * webpack +  codemirror minified + use strict = nw.js problems?

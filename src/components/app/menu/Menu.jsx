@@ -3,16 +3,14 @@ import InlineCss          from 'react-inline-css'
 import { Link, IndexLink} from 'react-router'
 const stylesheet = require('!css!less!./header.less').toString()
 
+var openButton, saveButton, editor, menu, fileEntry, hasWriteAccess
+
 const Header = React.createClass({
   getInitialState () {
     return {invite:'click'}
   },
-
-
-var openButton, saveButton, editor, menu, fileEntry, hasWriteAccess
-
 setFile(theFileEntry, isWritable){
-  fileEntry = theFileEntry
+  fileEntry      = theFileEntry
   hasWriteAccess = isWritable
 },
 readFileIntoEditor(theFileEntry){
@@ -33,19 +31,17 @@ writeEditorToFile(theFileEntry){
     console.log('wrote.')
   })
 },
-
-var onChosenFileToOpen = function(theFileEntry){
+onChosenFileToOpen(theFileEntry){
   setFile(theFileEntry, false)
   readFileIntoEditor(theFileEntry)
-}
-
-var onChosenFileToSave = function(theFileEntry){
+},
+onChosenFileToSave(theFileEntry){
   setFile(theFileEntry, true)
   writeEditorToFile(theFileEntry)
-}
-
-function handleOpenButton(){$('#openFile').trigger('click')},
-
+},
+handleOpenButton(){
+  $('#openFile').trigger('click')
+},
 handleSaveButton(){
   if (fileEntry && hasWriteAccess){
     writeEditorToFile(fileEntry)
@@ -53,26 +49,20 @@ handleSaveButton(){
     $('#saveFile').trigger('click')
   }
 },
-
-
-onload = function(){
-  initContextMenu()
+onload(){
   openButton = document.getElementById('open')
   saveButton = document.getElementById('save')
   openButton.addEventListener('click', handleOpenButton)
-  saveButton.addEventListener('click', handleSaveButton)
-
-  $('#saveFile').change(function(evt){onChosenFileToSave($(this).val())})
-  $('#openFile').change(function(evt){onChosenFileToOpen($(this).val())})
-
-  editor = CodeMirror(document.getElementById('pad'), config
+  saveButton.addEventListener('slick', handleSaveButton)
+  $('#saveFile').change(function(evt){
+    onChosenFileToSave($(this).val())
+  })
+  $('#openFile').change(function(evt){
+    onChosenFileToOpen($(this).val())
+  })
+  editor = CodeMirror(document.getElementById('pad'), config)
 },
 
-  
-  
-  
-  
-  
   toggleCopying () {
     if (this.state.invite === 'click') {
       this.setState({invite: 'copy'})
@@ -96,8 +86,12 @@ onload = function(){
               left:'12.5%'
               }}
             />
-            <input type="file" onchange="loadfile(this)" style={{position:'absolute',left:'30%'}} />
-            <button onclick="saveText()" style={{position:'absolute',left:'50%'}}>save</button>
+            <div className="buttons" style={{left:'30%', position:'absolute'}}>
+              <button id="open">open</button>
+              <button id="save">save</button>
+            </div>
+            <input style={{display:'none'}} id="openFile" type="file" />
+            <input style={{display:'none'}} id="saveFile" type="file" nwsaveas />
             <div className={this.state.invite}>
               <div className="share" onClick={this.toggleCopying}>
                 <span className="text">Invite participants:</span>

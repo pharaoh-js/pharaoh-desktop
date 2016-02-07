@@ -60,6 +60,17 @@ const Viewer = React.createClass({
     , readOnly           : student
     , autoCloseBrackets  : true
     , autoCloseTags      : true
+  // obviously the handlers below need to be set up somewhere. probably
+  // in ../menu/Menu.jsx(?). leaving the ctrl/cmd-n keys here, we can
+  // figure out hooking them up to the filetree and firebase later, i hope.
+    , extraKeys: {
+        'Cmd-S'  : function(instance){handleSaveButton()}
+      , 'Ctrl-S' : function(instance){handleSaveButton()}
+      , 'Cmd-O'  : function(instance){handleOpenButton()}
+      , 'Ctrl-O' : function(instance){handleOpenButton()}
+    //, 'Cmd-N'  : function(instance){handleNewButton()}
+    //, 'Ctrl-N' : function(instance){handleNewButton()}
+      }
     }
     return {
       pad: `${this.props.projectKey}/default`

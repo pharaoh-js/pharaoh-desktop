@@ -151,7 +151,7 @@ onload = function(){
       , 'Ctrl-O' : function(instance){handleOpenButton()}
       , 'Cmd-N'  : function(instance){handleNewButton()}
       , 'Ctrl-N' : function(instance){handleNewButton()}
-    }
+      }
   })
   newFile()
   onresize()

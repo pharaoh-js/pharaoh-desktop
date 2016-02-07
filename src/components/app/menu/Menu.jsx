@@ -7,6 +7,72 @@ const Header = React.createClass({
   getInitialState () {
     return {invite:'click'}
   },
+
+
+var openButton, saveButton, editor, menu, fileEntry, hasWriteAccess
+
+setFile(theFileEntry, isWritable){
+  fileEntry = theFileEntry
+  hasWriteAccess = isWritable
+},
+readFileIntoEditor(theFileEntry){
+  fs.readFile(theFileEntry, function(err, data){
+    if(err){
+      console.log('reading error', err)
+    }
+    editor.setValue(String(data))
+  })
+},
+writeEditorToFile(theFileEntry){
+  var str = editor.getValue()
+  fs.writeFile(theFileEntry, editor.getValue(), function(err){
+    if(err){
+      console.log('writing error', err)
+      return
+    }
+    console.log('wrote.')
+  })
+},
+
+var onChosenFileToOpen = function(theFileEntry){
+  setFile(theFileEntry, false)
+  readFileIntoEditor(theFileEntry)
+}
+
+var onChosenFileToSave = function(theFileEntry){
+  setFile(theFileEntry, true)
+  writeEditorToFile(theFileEntry)
+}
+
+function handleOpenButton(){$('#openFile').trigger('click')},
+
+handleSaveButton(){
+  if (fileEntry && hasWriteAccess){
+    writeEditorToFile(fileEntry)
+  } else {
+    $('#saveFile').trigger('click')
+  }
+},
+
+
+onload = function(){
+  initContextMenu()
+  openButton = document.getElementById('open')
+  saveButton = document.getElementById('save')
+  openButton.addEventListener('click', handleOpenButton)
+  saveButton.addEventListener('click', handleSaveButton)
+
+  $('#saveFile').change(function(evt){onChosenFileToSave($(this).val())})
+  $('#openFile').change(function(evt){onChosenFileToOpen($(this).val())})
+
+  editor = CodeMirror(document.getElementById('pad'), config
+},
+
+  
+  
+  
+  
+  
   toggleCopying () {
     if (this.state.invite === 'click') {
       this.setState({invite: 'copy'})
@@ -16,34 +82,6 @@ const Header = React.createClass({
     let input = this.refs.textInput
     input.focus()
     input.select()
-  },
-  loadfile(input){
-    let ed = CodeMirror(document.getElementById('pad'), config)
-    let reader = new FileReader()
-    reader.onload = function(e){
-      ed.setValue(e.target.result)
-    }
-    reader.readAsText(input.files[0])
-  },
-  saveText(){
-    var textWrite = document.getElementById('pad').value
-      , textBlob  = new Blob([textToWrite], {type:'text/plain'})
-      , fileNameToSaveAs = 'foo.js'
-      , downloadLink = document.createElement('a')
-    downloadLink.download = fileNameToSaveAs
-    downloadLink.innerHTML = 'save'
-    if(window.webkitURL != null){ // chromium lets click clink w/o adding to DOM
-      downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob)
-    } else { // mozilla does not
-      downloadLink.href = window.URL.createObjectURL(textFileAsBlob)
-      downloadLink.onclick = destroyClickedElement
-      downloadLink.style.display = 'none'
-      document.body.appendChild(downloadLink)
-    }
-    downloadLink.click()
-  },
-  destroyClickedElement(event){
-    document.body.removeChild(event.target)
   },
   render () {
     return (

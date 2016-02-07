@@ -3,66 +3,10 @@ import InlineCss          from 'react-inline-css'
 import { Link, IndexLink} from 'react-router'
 const stylesheet = require('!css!less!./header.less').toString()
 
-var openButton, saveButton, editor, menu, fileEntry, hasWriteAccess
-
 const Header = React.createClass({
   getInitialState () {
     return {invite:'click'}
   },
-setFile(theFileEntry, isWritable){
-  fileEntry      = theFileEntry
-  hasWriteAccess = isWritable
-},
-readFileIntoEditor(theFileEntry){
-  fs.readFile(theFileEntry, function(err, data){
-    if(err){
-      console.log('reading error', err)
-    }
-    editor.setValue(String(data))
-  })
-},
-writeEditorToFile(theFileEntry){
-  var str = editor.getValue()
-  fs.writeFile(theFileEntry, editor.getValue(), function(err){
-    if(err){
-      console.log('writing error', err)
-      return
-    }
-    console.log('wrote.')
-  })
-},
-onChosenFileToOpen(theFileEntry){
-  setFile(theFileEntry, false)
-  readFileIntoEditor(theFileEntry)
-},
-onChosenFileToSave(theFileEntry){
-  setFile(theFileEntry, true)
-  writeEditorToFile(theFileEntry)
-},
-handleOpenButton(){
-  $('#openFile').trigger('click')
-},
-handleSaveButton(){
-  if (fileEntry && hasWriteAccess){
-    writeEditorToFile(fileEntry)
-  } else {
-    $('#saveFile').trigger('click')
-  }
-},
-onload(){
-  openButton = document.getElementById('open')
-  saveButton = document.getElementById('save')
-  openButton.addEventListener('click', handleOpenButton)
-  saveButton.addEventListener('slick', handleSaveButton)
-  $('#saveFile').change(function(evt){
-    onChosenFileToSave($(this).val())
-  })
-  $('#openFile').change(function(evt){
-    onChosenFileToOpen($(this).val())
-  })
-  editor = CodeMirror(document.getElementById('pad'), config)
-},
-
   toggleCopying () {
     if (this.state.invite === 'click') {
       this.setState({invite: 'copy'})
@@ -86,12 +30,6 @@ onload(){
               left:'12.5%'
               }}
             />
-            <div className="buttons" style={{left:'30%', position:'absolute'}}>
-              <button id="open">open</button>
-              <button id="save">save</button>
-            </div>
-            <input style={{display:'none'}} id="openFile" type="file" />
-            <input style={{display:'none'}} id="saveFile" type="file" nwsaveas />
             <div className={this.state.invite}>
               <div className="share" onClick={this.toggleCopying}>
                 <span className="text">Invite participants:</span>

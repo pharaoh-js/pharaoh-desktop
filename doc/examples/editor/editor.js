@@ -145,8 +145,12 @@ onload = function(){
     , keyMap: 'vim'
     , theme: 'zemir'
     , extraKeys: {
-        'Cmd-S': function(instance){handleSaveButton()}
-      , 'Ctrl-S': function(instance){ handleSaveButton()}
+        'Cmd-S'  : function(instance){handleSaveButton()}
+      , 'Ctrl-S' : function(instance){handleSaveButton()}
+      , 'Cmd-O'  : function(instance){handleOpenButton()}
+      , 'Ctrl-O' : function(instance){handleOpenButton()}
+      , 'Cmd-N'  : function(instance){handleNewButton()}
+      , 'Ctrl-N' : function(instance){handleNewButton()}
     }
   })
   newFile()
@@ -163,3 +167,4 @@ onresize = function(){
   scrollerElement.style.height = containerHeight + 'px'
   editor.refresh()
 }
+

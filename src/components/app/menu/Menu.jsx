@@ -17,6 +17,34 @@ const Header = React.createClass({
     input.focus()
     input.select()
   },
+  loadfile(input){
+    let ed = CodeMirror(document.getElementById('pad'), config)
+    let reader = new FileReader()
+    reader.onload = function(e){
+      ed.setValue(e.target.result)
+    }
+    reader.readAsText(input.files[0])
+  },
+  saveText(){
+    var textWrite = document.getElementById('pad').value
+      , textBlob  = new Blob([textToWrite], {type:'text/plain'})
+      , fileNameToSaveAs = 'foo.js'
+      , downloadLink = document.createElement('a')
+    downloadLink.download = fileNameToSaveAs
+    downloadLink.innerHTML = 'save'
+    if(window.webkitURL != null){ // chromium lets click clink w/o adding to DOM
+      downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob)
+    } else { // mozilla does not
+      downloadLink.href = window.URL.createObjectURL(textFileAsBlob)
+      downloadLink.onclick = destroyClickedElement
+      downloadLink.style.display = 'none'
+      document.body.appendChild(downloadLink)
+    }
+    downloadLink.click()
+  },
+  destroyClickedElement(event){
+    document.body.removeChild(event.target)
+  },
   render () {
     return (
       <InlineCss componentName="Header" stylesheet={stylesheet}>
@@ -30,6 +58,8 @@ const Header = React.createClass({
               left:'12.5%'
               }}
             />
+            <input type="file" onchange="loadfile(this)" style={{position:'absolute',left:'30%'}} />
+            <button onclick="saveText()" style={{position:'absolute',left:'50%'}}>save</button>
             <div className={this.state.invite}>
               <div className="share" onClick={this.toggleCopying}>
                 <span className="text">Invite participants:</span>

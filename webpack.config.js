@@ -5,19 +5,20 @@ var React   = require('react')
 module.exports = {
   devtool: 'cheap-module-eval-source-map'
 , entry: [
-    './src/index.jsx'
+    'webpack-dev-server/client?http://127.0.0.1:9090'
+  , 'webpack/hot/only-dev-server'
+  , './src/index.jsx'
   ],
   output: {
     filename          : 'bundle.js'
-  , path              : __dirname + '/public'
   , sourceMapFilename : "[file].map"
-  , publicPath        : 'http://pharaoh.js.org'
+  , publicPath        : 'http://127.0.0.1:9090/public'
   },
   module: {
     loaders: [{
         test          : /\.jsx$/
       , exclude       : /node_modules/
-      , loaders       : ['babel']
+      , loaders       : ['react-hot', 'babel']
       },
       {
         test          : /\.less$/
@@ -26,6 +27,9 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },

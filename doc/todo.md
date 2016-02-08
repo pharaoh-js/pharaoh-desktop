@@ -1,8 +1,9 @@
-* absolutely must:
-  * get fs integration (open/save) working
-    * but with node-fs or as a browser?
-  * figure out bundling
-    * don't use nwjs to manage nw.js, turns out that was a source of many problems
+* immediate:
+  * `fileReader` for reading in/saving out files
+    * `firepad.getText()` (and `setText()`, and same with HTML) -- use on event to write to fs
+    * codemirror's `doc.getValue()` and `.setValue`??
+  * better bundling
+    * `nwjs` is out.
     * webpack +  codemirror minified + use strict = nw.js problems?
       * especially with opening devtools, at all?
     * get executables
@@ -11,18 +12,26 @@
       * `nwbuild -p win64,osx64,linux64 -v 0.12.3 -f .`
         * `cat `which nw` app.nw > app && chmod +x app`
         * this would work with deployed/already bundled app, and turn into executable binary
-* maybe actually mentioning licenses + those of dependencies, somewhere, would be a good idea.
+* our licence(s)(?) + those of dependencies, listed somewhere
 
-* decisions to make:
-  * saving to disk:
-    * autosave at x ms
-    * just a save option (as in traditional desktop editor)
-    * constant streaming
+* ui for dealing with files:
+  * should we set up an autosave (at x ms or whatever)?
+  * actual interface design bit -- where are we putting the open and save (filetree?)
+  * `doc/examples/editor` has a ctrl/cmd-s example in it.
+  * here's the basic idea:
 
-* possible future options:
+    // codemirror config...
+    // keymMap, mode, lineNumbers, etc.,
+    extraKeys: {
+      'Cmd-S'  : function(instance){savingFunction()}
+    , 'Ctrl-S' : function(instance){savingFunction()}
+    , 'Cmd-O'  : function(instance){openingFunction()}
+    , 'Ctrl-O' : function(instance){openingFunction()}
+    }
+
+* desktop feature decisions:
   * notifications
-  * context menu
+  * context menu(s)
   * tray icon/menu
-  * integrated fs explorer
-  * desktop integration (using system mime-type detection, etc.)
+  * exploring fs in-app (rather than using native dialog)?
 

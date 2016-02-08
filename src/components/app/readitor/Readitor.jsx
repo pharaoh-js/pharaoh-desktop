@@ -39,9 +39,9 @@ const modeObj = {
 const Viewer = React.createClass({
   swapDoc (path, name) {
     this.setState({
-      pad: path,
-      activeFile: name,
-      mode: this.modeFromFilename(name)
+      pad        : path
+    , activeFile : name
+    , mode       : this.modeFromFilename(name)
     })
   },
   getInitialState () {
@@ -60,14 +60,12 @@ const Viewer = React.createClass({
     , readOnly           : student
     , autoCloseBrackets  : true
     , autoCloseTags      : true
-  // obviously the handlers below need to be set up somewhere. probably
-  // in ../menu/Menu.jsx(?). leaving the ctrl/cmd-n keys here, we can
-  // figure out hooking them up to the filetree and firebase later, i hope.
     , extraKeys: {
         'Cmd-S'  : function(instance){handleSaveButton()}
       , 'Ctrl-S' : function(instance){handleSaveButton()}
       , 'Cmd-O'  : function(instance){handleOpenButton()}
       , 'Ctrl-O' : function(instance){handleOpenButton()}
+    // these will need to be hooked up with fire(pad|base) at some point.
     //, 'Cmd-N'  : function(instance){handleNewButton()}
     //, 'Ctrl-N' : function(instance){handleNewButton()}
       }
@@ -87,27 +85,27 @@ const Viewer = React.createClass({
     let ext = arr[arr.length-1]
     return modeObj[ext]
   },
-  setMode(fileName) {
+  setMode(fileName){
     let mode = this.modeFromFilename(fileName)
     this.updateSettings('mode', mode)
   },
-  showSettings () {
-    this.setState({ isSetting: true })
+  showSettings(){
+    this.setState({isSetting: true})
   },
-  hideSettings () {
+  hideSettings(){
     this.setState({isSetting: false})
   },
-  showEdit (editFn) {
-    this.setState({ isEditing: true })
-    this.setState({ editFn: editFn })
+  showEdit(editFn){
+    this.setState({isEditing: true})
+    this.setState({editFn: editFn})
   },
-  hideEdit () {
-    this.setState({ isEditing: false })
+  hideEdit(){
+    this.setState({isEditing: false})
   },
-  updateSettings (prop, val) {
+  updateSettings(prop, val){
     let config = Object.assign({},this.state.cmConfig)
     config[prop] = val
-    this.setState({ cmConfig:config })
+    this.setState({cmConfig:config})
   },
   render () {
     return (

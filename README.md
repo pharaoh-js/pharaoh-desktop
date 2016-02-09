@@ -12,6 +12,9 @@ This app is built on [NW.js](https://github.com/nwjs), using React and Firebase.
 https://github.com/pharaoh-js/pharaoh-desktop.git`, `cd pharaoh-desktop`, and `npm start`.
 `npm run dev` to run Pharaoh for the browser, with hot loading, then navigate to <http://127.0.0.1:9090/public>.
 
+Please be aware that some of the npm scripts _will not work_ in a non-POSIX environment. If you're on a Windows
+machine, use something that makes it un-Windows-y.
+
 Any and all PRs welcome! Please check out [this directory](https://github.com/pharaoh-js/pharaoh-desktop/tree/nwjs/doc)
 and the [to-do list](https://github.com/pharaoh-js/pharaoh-desktop/blob/nwjs/doc/todo.md).
 

@@ -1,6 +1,6 @@
 {
   "name": "pharaoh",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "A desktop app to interface with the Pharaoh live code broadcasting tool.",
   "main": "./public/index.html",
   "preferGlobal": true,
@@ -49,6 +49,13 @@
     "react"
   ],
   "author": "Pharaoh Team",
+  "contributors": [
+    {
+      "name": "Zac Anger",
+      "url": "http://zacanger.com",
+      "email": "zac@zacanger.com"
+    }
+  ],
   "license": "WTFPL",
   "bugs": {
     "url": "https://github.com/pharaoh-js/pharaoh-desktop/issues"

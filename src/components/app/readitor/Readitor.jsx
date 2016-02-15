@@ -71,13 +71,13 @@ const Viewer = React.createClass({
       }
     }
     return {
-      pad: `${this.props.projectKey}/default`
-    , isSetting: false
-    , cmConfig: cmConfig
-    , activeFile: ''
-    , themes: themeNames
-    , mode: ''
-    , isEditing: false
+      pad        : `${this.props.projectKey}/default`
+    , isSetting  : false
+    , cmConfig   : cmConfig
+    , activeFile : ''
+    , themes     : themeNames
+    , mode       : ''
+    , isEditing  : false
     }
   },
   modeFromFilename(fileName) {

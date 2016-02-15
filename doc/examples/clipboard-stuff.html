@@ -1,9 +1,5 @@
-<!--
-this is loading in codemirror's js and css, codemirror's js mode and paraiso dark theme,
-bootstrap's css and js, jquery, fontawesome's css, and clipboard.js.
-found on jsfiddle or somesuch.
--->
-
+<html>
+<head>
 <style>
 .CodeMirror {
     font-size: 8pt;
@@ -13,7 +9,13 @@ button.btn {
     margin-left: 6px;
 }
 </style>
-
+</head>
+<body>
+<!--
+this is loading in codemirror's js and css, codemirror's js mode and paraiso dark theme,
+bootstrap's css and js, jquery, fontawesome's css, and clipboard.js.
+found on jsfiddle or somesuch.
+-->
 
 <textarea rows="10" cols="60" id="code-editor"></textarea>
 <button class="btn btn-warning clip-btn-native" data-toggle="tooltip" title="Copy w/ Native">
@@ -38,10 +40,10 @@ $(function() {
         width: 340,
         height: 460
     });
-    
+
     // Instantiate Bootstrap tooltips.
-    $('[data-toggle="tooltip"]').tooltip(); 
-    
+    $('[data-toggle="tooltip"]').tooltip();
+
     new Clipboard('.clip-btn-native', {
         text: function(trigger) {
             return getCodeMirrorNative(editorSelector).getDoc().getValue();
@@ -70,7 +72,7 @@ function getCodeMirrorNative(target) {
     if (_target === null || !_target.tagName === undefined) {
         throw new Error('Element does not reference a CodeMirror instance.');
     }
-    
+
     if (_target.className.indexOf('CodeMirror') > -1) {
         return _target.CodeMirror;
     }
@@ -78,7 +80,7 @@ function getCodeMirrorNative(target) {
     if (_target.tagName === 'TEXTAREA') {
         return _target.nextSibling.CodeMirror;
     }
-    
+
     return null;
 };
 
@@ -88,7 +90,7 @@ function getCodeMirrorJQuery(target) {
     if ($target.length === 0) {
         throw new Error('Element does not reference a CodeMirror instance.');
     }
-    
+
     if (!$target.hasClass('CodeMirror')) {
     	if ($target.is('textarea')) {
             $target = $target.next('.CodeMirror');
@@ -115,7 +117,7 @@ function createEditor(options) {
     });
     editor.setSize(options.width || '100%', options.height || options.target.style.height);
 	editor.getDoc().setValue(JSON.stringify(options.data, null, 4));
-    
+
     return editor;
 }
 
@@ -132,3 +134,6 @@ function getSampleData() {
     ];
 }
 </script>
+
+</body>
+</html>

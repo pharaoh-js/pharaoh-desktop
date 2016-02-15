@@ -61,13 +61,13 @@ const Viewer = React.createClass({
     , autoCloseBrackets  : true
     , autoCloseTags      : true
     , extraKeys: {
-        'Cmd-S'  : function(instance){handleSaveButton()}
-      , 'Ctrl-S' : function(instance){handleSaveButton()}
-      , 'Cmd-O'  : function(instance){handleOpenButton()}
-      , 'Ctrl-O' : function(instance){handleOpenButton()}
+        'Cmd-S'  : function(instance){handleSave()}
+      , 'Ctrl-S' : function(instance){handleSave()}
+      , 'Cmd-O'  : function(instance){handleOpen()}
+      , 'Ctrl-O' : function(instance){handleOpen()}
     // these will need to be hooked up with fire(pad|base) at some point.
-    //, 'Cmd-N'  : function(instance){handleNewButton()}
-    //, 'Ctrl-N' : function(instance){handleNewButton()}
+    //, 'Cmd-N'  : function(instance){handleNew()}
+    //, 'Ctrl-N' : function(instance){handleNew()}
       }
     }
     return {

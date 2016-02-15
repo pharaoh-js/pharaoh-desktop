@@ -1,0 +1,134 @@
+<!--
+this is loading in codemirror's js and css, codemirror's js mode and paraiso dark theme,
+bootstrap's css and js, jquery, fontawesome's css, and clipboard.js.
+found on jsfiddle or somesuch.
+-->
+
+<style>
+.CodeMirror {
+    font-size: 8pt;
+    margin-bottom: 4px;
+}
+button.btn {
+    margin-left: 6px;
+}
+</style>
+
+
+<textarea rows="10" cols="60" id="code-editor"></textarea>
+<button class="btn btn-warning clip-btn-native" data-toggle="tooltip" title="Copy w/ Native">
+    <span class="glyphicon glyphicon-copy"> Native</span>
+</button>
+<button class="btn btn-warning clip-btn-jquery" data-toggle="tooltip" title="Copy w/ jQuery">
+    <span class="glyphicon glyphicon-copy"> jQuery</span>
+</button>
+<button class="btn btn-warning clip-btn-jquery-plugin" data-toggle="tooltip" title="Copy w/ jQuery Plugin">
+    <span class="glyphicon glyphicon-copy"> jQuery-plugin</span>
+</button>
+
+<script>
+$(function() {
+	var editorSelector = '#code-editor';
+    var editor = createEditor({
+        target: $(editorSelector).get(0),
+        data: getSampleData(),
+        theme: 'paraiso-dark',
+        readOnly: true,
+        lineNumbers: true,
+        width: 340,
+        height: 460
+    });
+    
+    // Instantiate Bootstrap tooltips.
+    $('[data-toggle="tooltip"]').tooltip(); 
+    
+    new Clipboard('.clip-btn-native', {
+        text: function(trigger) {
+            return getCodeMirrorNative(editorSelector).getDoc().getValue();
+        }
+    });
+
+    new Clipboard('.clip-btn-jquery', {
+        text: function(trigger) {
+            return getCodeMirrorJQuery(editorSelector + ' + .CodeMirror').getDoc().getValue();
+        }
+    });
+
+    new Clipboard('.clip-btn-jquery-plugin', {
+        text: function(trigger) {
+            return $(editorSelector).getCodeMirror().getDoc().getValue();;
+        }
+    });
+});
+
+// Retrieve a CodeMirror Instance via native JavaScript.
+function getCodeMirrorNative(target) {
+    var _target = target;
+    if (typeof _target === 'string') {
+        _target = document.querySelector(_target);
+    }
+    if (_target === null || !_target.tagName === undefined) {
+        throw new Error('Element does not reference a CodeMirror instance.');
+    }
+    
+    if (_target.className.indexOf('CodeMirror') > -1) {
+        return _target.CodeMirror;
+    }
+
+    if (_target.tagName === 'TEXTAREA') {
+        return _target.nextSibling.CodeMirror;
+    }
+    
+    return null;
+};
+
+// Retrieve a CodeMirror Instance via jQuery.
+function getCodeMirrorJQuery(target) {
+    var $target = target instanceof jQuery ? target : $(target);
+    if ($target.length === 0) {
+        throw new Error('Element does not reference a CodeMirror instance.');
+    }
+    
+    if (!$target.hasClass('CodeMirror')) {
+    	if ($target.is('textarea')) {
+            $target = $target.next('.CodeMirror');
+        }
+    }
+
+    return $target.get(0).CodeMirror;
+};
+
+// Retrieve a CodeMirror via jQuery plugin.
+(function($) {
+    $.fn.getCodeMirror = function() {
+        return (this.is('textarea') ? this.next('.CodeMirror') : this).get(0).CodeMirror;
+    };
+}(jQuery));
+
+// Boilerplate function to create a CodeMirror instance.
+function createEditor(options) {
+	var editor = CodeMirror.fromTextArea(options.target, {
+        mode: 'javascript',
+        theme: options.theme || 'default',
+        readOnly: options.readOnly,
+        lineNumbers: options.lineNumbers
+    });
+    editor.setSize(options.width || '100%', options.height || options.target.style.height);
+	editor.getDoc().setValue(JSON.stringify(options.data, null, 4));
+    
+    return editor;
+}
+
+// Return sample JSON data.
+function getSampleData() {
+	return [
+        { color: "red",     value: "#f00" },
+        { color: "green",   value: "#0f0" },
+        { color: "blue",    value: "#00f" },
+        { color: "cyan",    value: "#0ff" },
+        { color: "magenta", value: "#f0f" },
+        { color: "yellow",  value: "#ff0" },
+        { color: "black",   value: "#000" }
+    ];
+}
+</script>

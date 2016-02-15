@@ -1,24 +1,24 @@
 {
   "name": "pharaoh",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "A desktop app to interface with the Pharaoh live code broadcasting tool.",
   "main": "./public/index.html",
   "preferGlobal": true,
   "bin": "./index.js",
   "scripts": {
+    "lint": "./node node_modules/.bin/eslint -c .eslintrc src/**",
+    "dev": "webpack-dev-server --noInfo --port 9090 --hot --inline --open",
     "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
     "build": " npm run clean && ./node_modules/.bin/webpack",
-    "lint": "./node node_modules/.bin/eslint -c .eslintrc src/**",
     "prestart": "npm run build",
     "start": "./index.js",
-    "release": "./node_modules/.bin/nwbuild -p win64,osx64,linux64 -f .",
-    "dev": "webpack-dev-server --noInfo --port 9090 --hot --inline --open"
+    "release": "./node_modules/.bin/nwbuild -p win64,osx64,linux64 -f ."
   },
   "chromium-args": "--remote-debugging-port=9876",
   "window": {
     "title": "Pharaoh",
-    "icon": "icon.png",
-    "toolbar": true,
+    "icon": "./icon.png",
+    "toolbar": false,
     "frame": true,
     "single-instance": false,
     "width": 1600,
@@ -90,4 +90,3 @@
     "webpack-dev-server": "^1.14.1"
   }
 }
-

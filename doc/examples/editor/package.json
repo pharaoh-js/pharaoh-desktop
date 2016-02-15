@@ -2,13 +2,13 @@
   "name": "editor",
   "version": "0.1.0",
   "description": "editor.",
-  "main": "index.html",
+  "main": "./index.html",
   "window": {
     "width": 700,
-    "icon": "icon.png",
+    "height": 900,
+    "icon": "./icon.png",
     "single-instance": false,
     "position": "mouse",
-    "height": 900,
     "show": false,
     "title": "editor",
     "toolbar": false
@@ -17,4 +17,3 @@
     "start": "nw ."
   }
 }
-

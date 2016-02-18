@@ -43,7 +43,6 @@ const modeObj = {
 , jade   : 'jade'
 , lua    : 'lua'
 , pl     : 'perl'
-, rs     : 'rust'
 , sass   : 'sass'
 , mkd    : 'gfm'
 , mkdown : 'gfm'

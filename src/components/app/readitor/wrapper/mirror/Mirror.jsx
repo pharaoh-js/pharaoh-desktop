@@ -6,7 +6,7 @@ const Mirror = React.createClass({
     let fpRef = new Firebase(BASEREF + subRef)
     let codeMirror = CodeMirror(document.getElementById('pad'), config)
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
-      {defaultText: 'your canvas awaits'})
+      {defaultText: 'get hacking!'})
   },
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.pad !== nextProps.pad) {

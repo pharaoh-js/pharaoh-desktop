@@ -7,7 +7,7 @@
   * saving-jq version is from a demo based on a csv issue or somesuch
   * editor in `examples/editor` works just fine, but is using cm 2 and `node-fs`...
   * `failed` directory is a bunch of little non-working attempts using `app/menu/Menu.jsx`
-* `cm-lib` has the pieces of codemirror that we use, as well as the minification stuff
+* `codemirror-shiz` has the compression script and script/instructions on usage of that script
 
 I now know what the problem has been: CodeMirror and Firepad haven't been accessible from our app.
 Our instances of these weren't exposed. I'm still not entirely sure how to get them out,

@@ -23,6 +23,8 @@ const themeNames = [
 
 const modeObj = {
   html   : 'htmlmixed'
+, htm    : 'htmlmixed'
+, xhtml  : 'htmlmixed'
 , js     : 'javascript'
 , css    : 'css'
 , jsx    : 'jsx'
@@ -34,6 +36,29 @@ const modeObj = {
 , php    : 'php'
 , rb     : 'ruby'
 , swift  : 'swift'
+, lisp   : 'lisp'
+, elm    : 'elm'
+, go     : 'go'
+, hs     : 'haskell'
+, jade   : 'jade'
+, lua    : 'lua'
+, pl     : 'perl'
+, sass   : 'sass'
+, mkd    : 'gfm'
+, mkdown : 'gfm'
+, bash   : 'shell'
+, vue    : 'vue'
+, yaml   : 'yaml'
+, yml    : 'yaml'
+, xml    : 'xml'
+, sql    : 'sql'
+, sqlite : 'sql'
+, styl   : 'stylus'
+, lsp    : 'lisp'
+, el     : 'lisp'
+, scm    : 'scheme'
+, ss     : 'scheme'
+, sh     : 'shell'
 }
 
 const Viewer = React.createClass({
@@ -61,23 +86,23 @@ const Viewer = React.createClass({
     , autoCloseBrackets  : true
     , autoCloseTags      : true
     , extraKeys: {
-        'Cmd-S'  : function(instance){handleSaveButton()}
-      , 'Ctrl-S' : function(instance){handleSaveButton()}
-      , 'Cmd-O'  : function(instance){handleOpenButton()}
-      , 'Ctrl-O' : function(instance){handleOpenButton()}
+        'Cmd-S'  : function(instance){handleSave()}
+      , 'Ctrl-S' : function(instance){handleSave()}
+      , 'Cmd-O'  : function(instance){handleOpen()}
+      , 'Ctrl-O' : function(instance){handleOpen()}
     // these will need to be hooked up with fire(pad|base) at some point.
-    //, 'Cmd-N'  : function(instance){handleNewButton()}
-    //, 'Ctrl-N' : function(instance){handleNewButton()}
+    //, 'Cmd-N'  : function(instance){handleNew()}
+    //, 'Ctrl-N' : function(instance){handleNew()}
       }
     }
     return {
-      pad: `${this.props.projectKey}/default`
-    , isSetting: false
-    , cmConfig: cmConfig
-    , activeFile: ''
-    , themes: themeNames
-    , mode: ''
-    , isEditing: false
+      pad        : `${this.props.projectKey}/default`
+    , isSetting  : false
+    , cmConfig   : cmConfig
+    , activeFile : ''
+    , themes     : themeNames
+    , mode       : ''
+    , isEditing  : false
     }
   },
   modeFromFilename(fileName) {

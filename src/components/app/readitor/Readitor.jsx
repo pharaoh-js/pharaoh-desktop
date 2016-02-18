@@ -34,6 +34,7 @@ const modeObj = {
 , php    : 'php'
 , rb     : 'ruby'
 , swift  : 'swift'
+, shell  : 'shell'
 }
 
 const Viewer = React.createClass({

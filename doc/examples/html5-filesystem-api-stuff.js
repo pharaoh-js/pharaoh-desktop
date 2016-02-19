@@ -242,6 +242,5 @@ function onInitFileSystem(filesystem){
       }, errorHandler)
     }, errorHandler)
 }
-window.requestFileSystem(window.TEMPORARY, 1024 * 1024, onInitFileSystem,
-  errorHandler)
+window.requestFileSystem(window.TEMPORARY, 1024 * 1024, onInitFileSystem, errorHandler)
 

@@ -90,7 +90,7 @@ const Viewer = React.createClass({
     })
   },
 
-  getInitialState () {
+  getInitialState(){
     let student = !!(this.props.role === 'r')
     let cmConfig = {
       autoCloseBrackets  : true
@@ -126,7 +126,7 @@ const Viewer = React.createClass({
     }
   },
 
-  modeFromFilename(fileName) {
+  modeFromFilename(fileName){
     let arr = fileName.split('.')
     let ext = arr[arr.length-1]
     return modeObj[ext]

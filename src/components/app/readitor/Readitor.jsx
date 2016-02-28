@@ -89,21 +89,22 @@ const Viewer = React.createClass({
     , mode       : this.modeFromFilename(name)
     })
   },
+
   getInitialState () {
     let student = !!(this.props.role === 'r')
     let cmConfig = {
-      lineWrapping       : true
-    , mode               : 'javascript'
-    , theme              : 'abcdef'
-    , lineNumbers        : true
-    , matchBrackets      : true
-    , tabSize            : 2
-    , undoDepth          : 1000
+      autoCloseBrackets  : true
+    , autoCloseTags      : true
     , autofocus          : true
     , cursorScrollMargin : 2
+    , lineNumbers        : true
+    , lineWrapping       : true
+    , matchBrackets      : true
+    , mode               : 'javascript'
+    , tabSize            : 2
+    , theme              : 'abcdef'
+    , undoDepth          : 1000
     , readOnly           : student
-    , autoCloseBrackets  : true
-    , autoCloseTags      : true
 //    , extraKeys: {
 //        'Cmd-S'  : function(instance){handleSave()}
 //      , 'Ctrl-S' : function(instance){handleSave()}
@@ -116,41 +117,49 @@ const Viewer = React.createClass({
     }
     return {
       pad        : `${this.props.projectKey}/default`
-    , isSetting  : false
-    , cmConfig   : cmConfig
     , activeFile : ''
-    , themes     : themeNames
-    , mode       : ''
+    , cmConfig   : cmConfig
+    , isSetting  : false
     , isEditing  : false
+    , mode       : ''
+    , themes     : themeNames
     }
   },
+
   modeFromFilename(fileName) {
     let arr = fileName.split('.')
     let ext = arr[arr.length-1]
     return modeObj[ext]
   },
+
   setMode(fileName){
     let mode = this.modeFromFilename(fileName)
     this.updateSettings('mode', mode)
   },
+
   showSettings(){
     this.setState({isSetting: true})
   },
+
   hideSettings(){
     this.setState({isSetting: false})
   },
+
   showEdit(editFn){
     this.setState({isEditing: true})
     this.setState({editFn: editFn})
   },
+
   hideEdit(){
     this.setState({isEditing: false})
   },
+
   updateSettings(prop, val){
     let config = Object.assign({},this.state.cmConfig)
     config[prop] = val
     this.setState({cmConfig:config})
   },
+
   render () {
     return (
       <InlineCss componentName="Readitor" stylesheet={stylesheet}>

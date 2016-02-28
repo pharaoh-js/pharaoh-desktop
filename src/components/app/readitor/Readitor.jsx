@@ -26,44 +26,41 @@ const modeObj = {
 , htm      : 'htmlmixed'
 , xhtml    : 'htmlmixed'
 , js       : 'javascript'
+, json     : 'javascript'
+, coffee   : 'coffeescript'
 , css      : 'css'
 , less     : 'css'
 , jsx      : 'jsx'
 , scss     : 'sass'
+, sass     : 'sass'
 , py       : 'python'
+, pyw      : 'python'
 , clj      : 'clojure'
 , cljs     : 'clojure'
-, coffee   : 'coffeescript'
 , md       : 'gfm'
 , php      : 'php'
 , rb       : 'ruby'
 , swift    : 'swift'
-, lisp     : 'lisp'
 , elm      : 'elm'
 , go       : 'go'
 , hs       : 'haskell'
 , jade     : 'jade'
-, json     : 'javascript'
 , lua      : 'lua'
 , pl       : 'perl'
-, sass     : 'sass'
 , php3     : 'php'
 , php4     : 'php'
 , php5     : 'php'
+, phps     : 'php'
 , phtml    : 'php'
 , rake     : 'ruby'
 , zsh      : 'shell'
-, ksh      : 'shell'
-, phps     : 'php'
-, mkd      : 'gfm'
-, mkdown   : 'gfm'
-, pyw      : 'python'
-, markdown : 'gfm'
+, sh       : 'shell'
 , bash     : 'shell'
+, ksh      : 'shell'
+, mkd      : 'gfm'
+, markdown : 'gfm'
+, mkdown   : 'gfm'
 , vue      : 'vue'
-, yaml     : 'yaml'
-, yml      : 'yaml'
-, xml      : 'xml'
 , sql      : 'sql'
 , sqlite   : 'sql'
 , styl     : 'stylus'
@@ -73,13 +70,15 @@ const modeObj = {
 , el       : 'lisp'
 , scm      : 'scheme'
 , ss       : 'scheme'
+, yml      : 'yaml'
+, yaml     : 'yaml'
+, xml      : 'xml'
 , txt      : null
 , log      : null
 , text     : null
 , def      : null
 , list     : null
 , conf     : null
-, sh       : 'shell'
 }
 
 const Viewer = React.createClass({
@@ -98,7 +97,6 @@ const Viewer = React.createClass({
     , theme              : 'abcdef'
     , lineNumbers        : true
     , matchBrackets      : true
-    , lineWrapping       : true
     , tabSize            : 2
     , undoDepth          : 1000
     , autofocus          : true
@@ -106,15 +104,15 @@ const Viewer = React.createClass({
     , readOnly           : student
     , autoCloseBrackets  : true
     , autoCloseTags      : true
-    , extraKeys: {
-        'Cmd-S'  : function(instance){handleSave()}
-      , 'Ctrl-S' : function(instance){handleSave()}
-      , 'Cmd-O'  : function(instance){handleOpen()}
-      , 'Ctrl-O' : function(instance){handleOpen()}
+//    , extraKeys: {
+//        'Cmd-S'  : function(instance){handleSave()}
+//      , 'Ctrl-S' : function(instance){handleSave()}
+//      , 'Cmd-O'  : function(instance){handleOpen()}
+//      , 'Ctrl-O' : function(instance){handleOpen()}
     // these will need to be hooked up with fire(pad|base) at some point.
     //, 'Cmd-N'  : function(instance){handleNew()}
     //, 'Ctrl-N' : function(instance){handleNew()}
-      }
+//      }
     }
     return {
       pad        : `${this.props.projectKey}/default`
@@ -190,4 +188,3 @@ const Viewer = React.createClass({
 })
 
 export default Viewer
-

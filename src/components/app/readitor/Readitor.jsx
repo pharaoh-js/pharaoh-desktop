@@ -91,7 +91,7 @@ const Viewer = React.createClass({
   },
 
   getInitialState(){
-    let student = !!(this.props.role === 'r')
+    let student  = !!(this.props.role === 'r')
     let cmConfig = {
       autoCloseBrackets  : true
     , autoCloseTags      : true

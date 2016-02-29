@@ -163,8 +163,7 @@ class FileTree extends React.Component {
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="file-browser">
-          <div className="file-header">{this.state.projectName}</div>
-          <div
+          <span
             className={this.props.role === 'w' ? 'create-folder' :'hide-tree'}
             onClick={this.showEdit.bind(this, this.createRootFolder)}>
             <img
@@ -172,8 +171,8 @@ class FileTree extends React.Component {
               style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
             }} />
               new directory
-          </div>
-          <div
+          </span>
+          <span
             className={this.props.role === 'w' ? 'create-folder' :'hide-tree'}
             onClick={this.showEdit.bind(this, this.createRootFile)}>
             <img
@@ -181,7 +180,7 @@ class FileTree extends React.Component {
               style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
             }} />
               new file
-          </div>
+          </span>
           <Folder
             folder={this.state.projectDirectory}
             handleToggle={this.handleToggle}
@@ -206,4 +205,7 @@ class FileTree extends React.Component {
 }
 
 export default FileTree
+
+// <div className="file-header">{this.state.projectName}</div>
+// the above line was removed from line 166 (between file-browser and the opening toolbar sorta div)
 

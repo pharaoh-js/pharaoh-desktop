@@ -37,12 +37,11 @@ const Header = React.createClass({
             />
             <div className={this.state.invite}>
               <div className="share" onClick={this.toggleCopying}>
-                <span className="text">Invite participants:</span>
+                <span className="text">Invite Participants:</span>
                 <img src='images/people.png' style={{width: '40px'}} />
               </div>
               <input
                 ref="textInput"
-                id="copyThis"
                 className="copyURL"
                 type="text"
                 readOnly="true"
@@ -60,5 +59,7 @@ export default Header
 
 // alternate unicode for clipboard: &#x1f4cb;
 // <button className="btn" data-clipboard-target="#copyThis">&#128203;</button>
-// bassicaly the same thing as the current button:
+// (with id="copyThis" on the input)
+// basicaly the same thing as the current button:
 // <button className="btn" data-clipboard-text={'http://pharaoh.js.org/#/app/r/' + this.props.projectKey}>
+

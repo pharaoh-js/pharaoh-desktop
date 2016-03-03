@@ -125,7 +125,6 @@ class FileTree extends React.Component {
     let ref = new Firebase(`${firebaseRef}/${componentRef}`)
     ref.once('value', (item)=> {
       let toChange = item.val()
-      debugger;
       if(toChange.folderName){ref.update({folderName: userInput})}
       if(toChange.fileName){ref.update({fileName: userInput})}
     })

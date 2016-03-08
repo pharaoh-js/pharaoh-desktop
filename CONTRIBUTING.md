@@ -1,7 +1,7 @@
 * [Code of Conduct](https://www.npmjs.com/policies/conduct)
 
 * We assume a UNIX-like environment.
-  - _If it's broken on your Mac/BSD/Linux, please raise an issue, and I'll try to get that fixed ASAP.
+  - If it's broken on your Mac/BSD/Linux, please raise an issue, and I'll try to get that fixed ASAP.
   - If it's broken on your Windows machine, please raise an issue, but also consider a PR, because it won't be a priority.
 
 * Bugs? Please file them! But first, please make sure they're a part of our app, not your environment.

@@ -6,7 +6,7 @@ const Wrapper = React.createClass({
 
   handleClick(event){
     let eNotClose = ['wrapper','settings']
-    let e = event;
+    let e         = event
     if (eNotClose.indexOf(e.target.offsetParent.className) === -1){
       this.props.hideSettings()
     }

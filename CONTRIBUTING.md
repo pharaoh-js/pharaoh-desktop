@@ -14,10 +14,10 @@
 
 * Things we need:
   - A lot.
-  - Top priorities are [here](https://github.com/pharaoh-js/pharaoh-desktop/blob/nwjs/doc%2Ftodo.md)
-  - There's more information on what we have so far [here](https://github.com/pharaoh-js/pharaoh-desktop/blob/nwjs/doc%2Freadme.md)
-  - Line endings, etc., as specified [here](https://github.com/pharaoh-js/pharaoh-desktop/blob/nwjs/.gitattributes)
-  - We'd _like_ to stick to [this style](https://github.com/pharaoh-js/pharaoh-desktop/blob/nwjs/.eslintrc), but
+  - Top priorities are [here](doc%2Ftodo.md)
+  - There's more information on what we have so far [here](doc%2Freadme.md)
+  - Line endings, etc., as specified [here](.gitattributes)
+  - We'd _like_ to stick to [this style](.eslintrc), but
     sometimes we're not so good at this.
     - 2 spaces, comma first, semicolon-free, keep things lined up, and a bunch of other things.
     - It's all pretty evident just from reading the code.

@@ -6,13 +6,13 @@
   "preferGlobal": true,
   "bin": "./index.js",
   "scripts": {
-    "lint": "./node node_modules/.bin/eslint -c .eslintrc src/**",
+    "lint": "eslint -c .eslintrc src/**",
     "dev": "webpack-dev-server --noInfo --port 9090 --hot --inline --open",
     "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
-    "build": " npm run clean && ./node_modules/.bin/webpack",
+    "build": " npm run clean && webpack",
     "prestart": "npm run build",
     "start": "./index.js",
-    "release": "./node_modules/.bin/nwbuild -p win64,osx64,linux64 -f ."
+    "release": "nwbuild -p win64,osx64,linux64 -f ."
   },
   "chromium-args": "--remote-debugging-port=9876",
   "window": {

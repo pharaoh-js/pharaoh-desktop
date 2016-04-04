@@ -7,7 +7,7 @@
   "bin": "./index.js",
   "scripts": {
     "lint": "eslint -c .eslintrc src/**",
-    "dev": "webpack-dev-server --noInfo --port 9090 --hot --inline --open",
+    "dev": "webpack-dev-server --content-base public/ --noInfo --port 9090 --hot --inline --open",
     "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
     "build": " NODE_ENV=production npm run clean && webpack",
     "prestart": "npm run build",

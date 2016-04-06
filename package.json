@@ -1,13 +1,13 @@
 {
   "name": "pharaoh",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "description": "A desktop app for the Pharaoh live programming tool.",
   "main": "./public/index.html",
   "preferGlobal": true,
   "bin": "./index.js",
   "scripts": {
     "lint": "eslint -c .eslintrc src/**",
-    "dev": "webpack-dev-server --noInfo --port 9090 --hot --inline --open --content-base public/ ",
+    "dev": "webpack && webpack-dev-server --noInfo --port 9090 --hot --inline --open --content-base public/ ",
     "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
     "build": " npm run clean && webpack -p --config=./webpack.config.prod.js",
     "prestart": "npm run build",

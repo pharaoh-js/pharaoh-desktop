@@ -1,18 +1,18 @@
 {
   "name": "pharaoh",
-  "version": "0.8.3",
-  "description": "A desktop app to interface with the Pharaoh live code broadcasting tool.",
+  "version": "0.8.5",
+  "description": "A desktop app for the Pharaoh live programming tool.",
   "main": "./public/index.html",
   "preferGlobal": true,
   "bin": "./index.js",
   "scripts": {
     "lint": "eslint -c .eslintrc src/**",
-    "dev": "webpack-dev-server --content-base public/ --noInfo --port 9090 --hot --inline --open",
+    "dev": "webpack-dev-server --noInfo --port 9090 --hot --inline --open --content-base public/ ",
     "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
-    "build": " NODE_ENV=production npm run clean && webpack",
+    "build": " npm run clean && webpack -p --config=./webpack.config.prod.js",
     "prestart": "npm run build",
     "start": "./index.js",
-    "release": "NODE_ENV=production nwbuild -p win64,osx64,linux64 -f ."
+    "release": "NODE_ENV=production npm run build  ; nwbuild -p win64,osx64,linux64 -f ."
   },
   "chromium-args": "--remote-debugging-port=9876",
   "window": {
@@ -62,14 +62,14 @@
   },
   "homepage": "https://github.com/pharaoh-js/pharaoh-desktop#readme",
   "dependencies": {
-    "firebase": "^2.3.2",
+    "firebase": "^2.4.2",
     "firepad": "^1.3.0",
     "history": "^1.17.0",
     "nw-builder": "^2.2.0",
-    "react": "^0.14.5",
-    "react-dom": "^0.14.5",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
     "react-fontawesome": "^0.3.3",
-    "react-inline-css": "^2.0.1",
+    "react-inline-css": "^2.1.0",
     "react-router": "^1.0.3"
   },
   "devDependencies": {
@@ -90,3 +90,4 @@
     "webpack-dev-server": "^1.14.1"
   }
 }
+

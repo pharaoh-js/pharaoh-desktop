@@ -12,6 +12,7 @@
       * `nwbuild -p win64,osx64,linux64 -v 0.12.3 -f .`
         * `cat `which nw` app.nw > app && chmod +x app`
         * this would work with deployed/already bundled app, and turn into executable binary
+
 * our licence(s)(?) + those of dependencies, listed somewhere
 
 * ui for dealing with files:

@@ -9,7 +9,7 @@
     "lint": "eslint -c .eslintrc src/**",
     "dev": "webpack-dev-server --noInfo --port 9090 --hot --inline --open --content-base public/ ",
     "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
-    "build": " NODE_ENV=production npm run clean && webpack",
+    "build": " npm run clean && webpack -p --config=./webpack.config.prod.js",
     "prestart": "npm run build",
     "start": "./index.js",
     "release": "NODE_ENV=production npm run build  ; nwbuild -p win64,osx64,linux64 -f ."

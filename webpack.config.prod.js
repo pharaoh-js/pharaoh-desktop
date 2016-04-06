@@ -5,12 +5,8 @@ const
 
 module.exports = {
   devtool : 'cheap-module-eval-source-map'
-, entry   : [
-    'webpack-dev-server/client?http://127.0.0.1:9090'
-  , 'webpack/hot/only-dev-server'
-  , './src/index.jsx'
-  ]
-, output : {
+, entry   : './src/index.jsx'
+, output  : {
     filename          : 'bundle.js'
   , path              : './public'
   , sourceMapFilename : "[file].map"
@@ -29,9 +25,6 @@ module.exports = {
       }
     ]
   }
-, plugins : [
-    new webpack.HotModuleReplacementPlugin()
-  ]
 , resolve : {
     extensions : ['', '.js', '.jsx']
   }

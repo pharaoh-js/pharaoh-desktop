@@ -7,23 +7,25 @@ import Stack          from './stack/Stack'
 import GettingStarted from './gettingStarted/GettingStarted'
 import Firebase       from 'firebase'
 
-const stylesheet = require('!css!less!./landing.less').toString()
-const BASEURL    = 'https://pharaohjs.firebaseio.com/session/'
+const
+  stylesheet = require('!css!less!./landing.less').toString()
+, BASEURL    = 'https://pharaohjs.firebaseio.com/session/'
 
-const Landing = React.createClass({
+, Landing    = React.createClass({
   initFirebase(projectName = 'Project Name') {
-    let ref = new Firebase(BASEURL)
-    let projectRef = ref.push({
-      projectName : projectName,
-      default: {fileName: 'gettingStarted.js', key: 'default'}
+    let
+      ref         = new Firebase(BASEURL)
+    , projectRef = ref.push({
+      projectName : projectName
+    , default     : {fileName : 'gettingStarted.js', key : 'default'}
     })
     return projectRef.key()
-  },
-  startSession(projectName) {
+  }
+, startSession(projectName) {
     let key = this.initFirebase(projectName)
     this.props.history.pushState(null, '/app/w/' + key)
-  },
-  render () {
+  }
+, render () {
     return (
       <InlineCss componentName="Landing" stylesheet={stylesheet}>
         <div className="container">
@@ -31,7 +33,7 @@ const Landing = React.createClass({
             <Header />
           </div>
           <HowTo />
-          <GettingStarted startSession={this.startSession}/>
+          <GettingStarted startSession={this.startSession} />
           <Team />
           <Stack />
         </div>

@@ -3,10 +3,11 @@ import File      from './File.jsx'
 import _         from 'lodash'
 import Firebase  from 'firebase'
 import InlineCss from 'react-inline-css'
+
 const stylesheet = require('!css!less!./fileTree.less').toString()
 
 class Folder extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.handleToggle = this.handleToggle.bind(this)
     this.createFile   = this.createFile.bind(this)
@@ -16,31 +17,31 @@ class Folder extends React.Component {
     this.showEdit     = this.showEdit.bind(this)
   }
 
-  deleteItem (){
+  deleteItem() {
     this.props.deleteItem(this.props.firebaseRef, this.props.firebaseComponentPath)
   }
 
-  createFile (userInput){
+  createFile(userInput) {
     this.props.createFile(this.props.firebaseRef, this.props.firebaseComponentPath, userInput)
   }
 
-  createFolder (userInput){
+  createFolder(userInput) {
     this.props.createFolder(this.props.firebaseRef, this.props.firebaseComponentPath, userInput)
   }
 
-  updateItem (userInput){
+  updateItem(userInput) {
     this.props.updateItem(this.props.firebaseRef, this.props.firebaseComponentPath, userInput)
   }
 
-  handleToggle (){
+  handleToggle() {
     this.props.handleToggle(this.props.folder.key)
   }
 
-  showEdit (editFn){
+  showEdit(editFn) {
     this.props.showEdit(editFn)
   }
 
-  render(){
+  render() {
     let that = this
     var folderContents
     var folderTitle = this.props.folder.folderName ? (
@@ -48,8 +49,13 @@ class Folder extends React.Component {
         <span onClick={this.handleToggle}>
           <img
             src="images/folder2x.png"
-            style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
-          </img>
+            style={{
+              width        : '16px'
+            , position     : 'relative'
+            , top          : '3px'
+            , paddingRight : '3px'
+            }}
+          />
           {this.props.folder.folderName}
         </span>
         <span>
@@ -77,9 +83,9 @@ class Folder extends React.Component {
       </div>
     ) : null
 
-      var readDirectory = function(folderObj){
-        var folders = _.values(folderObj).map((folderItem, index)=> {
-          if(folderItem.folderName){
+      var readDirectory = function(folderObj) {
+        var folders = _.values(folderObj).map((folderItem, index) => {
+          if (folderItem.folderName) {
             return (
               <Folder
                 key={index}
@@ -102,7 +108,7 @@ class Folder extends React.Component {
         })
 
       var files = _.values(folderObj).map((folderItem, index) => {
-        if(folderItem.fileName){
+        if (folderItem.fileName) {
           return (
             <File
               file={folderItem}
@@ -122,7 +128,8 @@ class Folder extends React.Component {
       var nodes = folders.concat(files)
       return nodes
     }
-    if(this.props.root){
+
+    if (this.props.root) {
       folderContents = readDirectory(this.props.folder)
     } else {
       folderContents = this.props.isOpen[this.props.folder.key] ? readDirectory(this.props.folder) : null

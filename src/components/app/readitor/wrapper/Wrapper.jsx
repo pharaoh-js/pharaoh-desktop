@@ -5,21 +5,25 @@ import Settings           from './settings/Settings'
 const Wrapper = React.createClass({
 
   handleClick(event){
-    let eNotClose = ['wrapper','settings']
-    let e         = event
+    let
+      eNotClose = ['wrapper','settings']
+    , e         = event
+
     if (eNotClose.indexOf(e.target.offsetParent.className) === -1){
       this.props.hideSettings()
     }
-  },
+  }
 
-  render () {
-    let mirror   = <Mirror pad={this.props.pad} config={this.props.config} />
-    let settings = this.props.isSetting ?
+, render () {
+    let
+      mirror   = <Mirror pad={this.props.pad} config={this.props.config} />
+    , settings = this.props.isSetting                 ?
       <Settings
         themes={this.props.themes}
         hideSettings={this.props.hideSettings}
         updateSettings={this.props.updateSettings} /> :
       null
+
     return (
       <div
         onClick={this.handleClick}
@@ -38,3 +42,4 @@ const Wrapper = React.createClass({
 })
 
 export default Wrapper
+

@@ -1,5 +1,6 @@
-var openButton, saveButton, editor, fileEntry, hasWriteAccess
-  , fs        = require('fs')
+const fs = require('fs')
+
+let openButton, saveButton, editor, fileEntry, hasWriteAccess
 
 require('nw.gui').Window.get().showDevTools()
 
@@ -10,7 +11,7 @@ function setFile(theFileEntry, isWritable){
 
 function readFileIntoEditor(theFileEntry){
   fs.readFile(theFileEntry, function(err, data){
-    if(err){
+    if (err) {
       console.log('failed', err)
     }
     handleDocumentChange(theFileEntry)
@@ -21,7 +22,7 @@ function readFileIntoEditor(theFileEntry){
 function writeEditorToFile(theFileEntry){
   var str = editor.getValue()
   fs.writeFile(theFileEntry, editor.getValue(), function(err){
-  if(err){
+  if (err) {
     console.log('failed', err)
     return
   }
@@ -45,7 +46,7 @@ function handleOpenButton(){
 }
 
 function handleSaveButton(){
-  if(fileEntry && hasWriteAccess){
+  if (fileEntry && hasWriteAccess) {
     writeEditorToFile(fileEntry)
   } else {
     $('#saveFile').trigger('click')
@@ -57,12 +58,8 @@ onload = function(){
   saveButton = document.getElementById('save')
   openButton.addEventListener('click', handleOpenButton)
   saveButton.addEventListener('click', handleSaveButton)
-  $('#saveFile').change(function(evt){
-    onChosenFileToSave($(this).val())
-  })
-  $('#openFile').change(function(evt){
-    onChosenFileToOpen($(this).val())
-  })
+  $('#saveFile').change(function(evt){onChosenFileToSave($(this).val())})
+  $('#openFile').change(function(evt){onChosenFileToOpen($(this).val())})
   editor = CodeMirror(document.getElementById('pad'), config)
 }
 

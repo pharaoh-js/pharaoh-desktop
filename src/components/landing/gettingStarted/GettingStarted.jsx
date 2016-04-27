@@ -1,35 +1,41 @@
 import React     from 'react'
 import InlineCss from 'react-inline-css'
 
-const stylesheet = require('!css!less!./gettingStarted.less').toString()
+const
+  stylesheet     = require('!css!less!./gettingStarted.less').toString()
 
-const GettingStarted = React.createClass({
-  getInitialState(){return {sessionName: 'New Session'}},
-  sessionNameChange(e) {
-    this.setState({ sessionName: e.target.value })
-  },
-  handleSubmit (e) {
+, GettingStarted = React.createClass({
+  getInitialState(){return {sessionName : 'New Session'}}
+, sessionNameChange(e) {
+    this.setState({sessionName : e.target.value})
+  }
+, handleSubmit (e) {
     e.preventDefault()
     let sessionName = this.state.sessionName
     this.props.startSession(sessionName);
-  },
-  render() {
+  }
+, render() {
     return (
       <InlineCss componentName="GettingStarted" stylesheet={stylesheet}>
         <div className="container">
           <div className="header">Getting Started</div>
           <div className="option1">
-            <big> Start a new session using the browser editor.</big>
-            <img src="images/pharaohclient.png"></img>
+            <big>Start a new session using the browser editor.</big>
+            <img src="images/pharaohclient.png" />
             <div className="start-session">
               <big>Start New Session</big>
               <form onSubmit={this.handleSubmit}>
                 <input
                   onChange={this.sessionNameChange}
-                  style={{width:'60%'}}
-                  placeholder="optional session name" type="text"
+                  style={{width : '60%'}}
+                  placeholder="optional session name"
+                  type="text"
                 />
-                <input className="btn" type="submit" value="Start!" />
+                <input
+                  className="btn"
+                  type="submit"
+                  value="Start!"
+                />
               </form>
               <p>
                 Launch the browser-based Pharaoh editor and send invitations.
@@ -38,8 +44,8 @@ const GettingStarted = React.createClass({
             </div>
           </div>
           <div className="option1">
-            <big> Or, install the Pharaoh desktop app.</big>
-            <img src="images/desktop.png"></img>
+            <big>Or, install the Pharaoh desktop app.</big>
+            <img src="images/desktop.png" />
             <div className="desktop">
               <span className="npmInstall">npm i -g pharaoh</span>
               <p>

@@ -10,7 +10,7 @@ class UserInput extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   inputChange (e){
-    this.setState({ userInput: e.target.value })
+    this.setState({userInput : e.target.value})
   }
 
   handleSubmit (e){
@@ -24,7 +24,7 @@ class UserInput extends React.Component {
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="box">
-          <div style={{margin:'0 0 5px 0'}}>Create / Rename</div>
+          <div style={{margin : '0 0 5px 0'}}>Create / Rename</div>
           <form onSubmit={this.handleSubmit}>
             <input
               onChange={this.inputChange}

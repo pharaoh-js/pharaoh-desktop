@@ -2,25 +2,26 @@ import React              from 'react'
 import InlineCss          from 'react-inline-css'
 import {Link, IndexLink}  from 'react-router'
 
-const stylesheet = require('!css!less!./header.less').toString()
+const
+  stylesheet = require('!css!less!./header.less').toString()
 
-const Header = React.createClass({
+, Header     = React.createClass({
   getInitialState () {
-    return {invite:'click'}
-  },
+    return {invite :'click'}
+  }
 
-  toggleCopying () {
+, toggleCopying () {
     if (this.state.invite === 'click') {
-      this.setState({invite: 'copy'})
+      this.setState({invite : 'copy'})
     } else {
-      this.setState({invite: 'click'})
+      this.setState({invite : 'click'})
     }
     let input = this.refs.textInput
     input.focus()
     input.select()
-  },
+  }
 
-  render () {
+, render () {
     return (
       <InlineCss componentName="Header" stylesheet={stylesheet}>
         <div className="header">
@@ -31,14 +32,14 @@ const Header = React.createClass({
               style={{
                 width    : '50px'
               , position : 'absolute'
-              , top      : '  3px'
+              , top      : '3px'
               , left     : '200px'
               }}
             />
             <div className={this.state.invite}>
               <div className="share" onClick={this.toggleCopying}>
                 <span className="text">Invite Participants:</span>
-                <img src='images/people.png' style={{width: '40px'}} />
+                <img src='images/people.png' style={{width : '40px'}} />
               </div>
               <input
                 ref="textInput"

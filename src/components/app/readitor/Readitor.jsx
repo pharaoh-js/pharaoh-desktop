@@ -5,11 +5,10 @@ import StatusBar from './statusbar/Statusbar'
 import TitleBar  from './titlebar/Titlebar'
 import Tree      from './tree/FileTree.jsx'
 
-const stylesheet = require('!css!less!./readitor.less').toString()
-
-const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
-
-const themeNames = [
+const
+  stylesheet = require('!css!less!./readitor.less').toString()
+, BASEREF    = 'https://pharaohjs.firebaseio.com/session/'
+, themeNames = [
   'abcdef'
 , 'base16-dark'
 , 'base16-light'
@@ -21,7 +20,7 @@ const themeNames = [
 , 'zeemirror'
 ]
 
-const modeObj = {
+, modeObj    = {
   css      : 'css'
 , less     : 'css'
 , clj      : 'clojure'
@@ -81,18 +80,19 @@ const modeObj = {
 , conf     : null
 }
 
-const Viewer = React.createClass({
+, Viewer     = React.createClass({
   swapDoc (path, name) {
     this.setState({
       pad        : path
     , activeFile : name
     , mode       : this.modeFromFilename(name)
     })
-  },
+  }
 
-  getInitialState(){
-    let student  = !!(this.props.role === 'r')
-    let cmConfig = {
+, getInitialState(){
+    let
+      student  = !!(this.props.role === 'r')
+    , cmConfig = {
       autoCloseBrackets  : true
     , autoCloseTags      : true
     , autofocus          : true
@@ -124,43 +124,44 @@ const Viewer = React.createClass({
     , mode       : ''
     , themes     : themeNames
     }
-  },
+  }
 
-  modeFromFilename(fileName){
-    let arr = fileName.split('.')
-    let ext = arr[arr.length-1]
+, modeFromFilename(fileName){
+    let
+      arr = fileName.split('.')
+    , ext = arr[arr.length-1]
     return modeObj[ext]
-  },
+  }
 
-  setMode(fileName){
+, setMode(fileName){
     let mode = this.modeFromFilename(fileName)
     this.updateSettings('mode', mode)
-  },
+  }
 
-  showSettings(){
-    this.setState({isSetting: true})
-  },
+, showSettings(){
+    this.setState({isSetting : true})
+  }
 
-  hideSettings(){
-    this.setState({isSetting: false})
-  },
+, hideSettings(){
+    this.setState({isSetting : false})
+  }
 
-  showEdit(editFn){
-    this.setState({isEditing: true})
-    this.setState({editFn: editFn})
-  },
+, showEdit(editFn){
+    this.setState({isEditing : true})
+    this.setState({editFn    : editFn})
+  }
 
-  hideEdit(){
-    this.setState({isEditing: false})
-  },
+, hideEdit(){
+    this.setState({isEditing : false})
+  }
 
-  updateSettings(prop, val){
-    let config = Object.assign({},this.state.cmConfig)
+, updateSettings(prop, val){
+    let config = Object.assign({}, this.state.cmConfig)
     config[prop] = val
-    this.setState({cmConfig:config})
-  },
+    this.setState({cmConfig : config})
+  }
 
-  render () {
+, render () {
     return (
       <InlineCss componentName="Readitor" stylesheet={stylesheet}>
         <div className="container">
@@ -197,3 +198,4 @@ const Viewer = React.createClass({
 })
 
 export default Viewer
+

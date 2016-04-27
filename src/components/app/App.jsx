@@ -4,18 +4,16 @@ import Menu               from './menu/Menu'
 
 const App = React.createClass({
   getInitialState () {
-    return {project: 'sandbox'}
-  },
-  componentWillMount() {
-    this.role = this.props.params.role
+    return {project : 'sandbox'}
+  }
+, componentWillMount() {
+    this.role       = this.props.params.role
     this.projectKey = this.props.params.project
-  },
-  render () {
+  }
+, render () {
     return (
       <div>
-        <Menu
-          projectKey={this.projectKey}
-         />
+        <Menu projectKey={this.projectKey} />
         <Readitor
           projectKey={this.projectKey}
           role={this.role}

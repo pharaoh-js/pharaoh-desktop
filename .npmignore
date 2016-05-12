@@ -13,6 +13,7 @@
 *~
 .babelrc
 .completer.hist
+.editorconfig
 .eslintrc
 .gitattributes
 .gitignore
@@ -20,4 +21,6 @@ doc
 ed.js
 node_modules
 src
+webpack.config.js
+webpack.config.prod.js
 

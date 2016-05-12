@@ -15,11 +15,11 @@
   "preferGlobal": true,
   "bin": "./index.js",
   "scripts": {
-    "build": "npm run clean && webpack --config=./webpack.config.prod.js",
+    "prepublish": "npm run build",
+    "build": "NODE_ENV=production npm run clean && webpack --config=./webpack.config.prod.js",
     "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
     "dev": "webpack-dev-server --config webpack.config.js --hot --inline",
     "lint": "eslint -c .eslintrc src/**",
-    "release": "NODE_ENV=production npm run build ; nwbuild -p win64,osx64,linux64 -f .",
     "start": "./index.js"
   },
   "homepage": "https://github.com/pharaoh-js/pharaoh-desktop#readme",
@@ -54,7 +54,6 @@
     "react-router": "^1.0.3"
   },
   "devDependencies": {
-    "nw-builder": "^2.2.0",
     "babel-core": "^6.3.26",
     "babel-eslint": "^5.0.0-beta6",
     "babel-loader": "^6.2.1",

@@ -1,7 +1,7 @@
 {
   "name": "pharaoh",
   "description": "A desktop app for the Pharaoh live programming tool.",
-  "version": "0.8.9",
+  "version": "0.9.0",
   "author": "Pharaoh Team",
   "contributors": [
     {
@@ -16,6 +16,7 @@
   "bin": "./index.js",
   "scripts": {
     "prepublish": "npm run build",
+    "postinstall": "nw install 0.15.0",
     "build": "NODE_ENV=production npm run clean && webpack --config webpack.config.prod.js",
     "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
     "dev": "webpack-dev-server --config webpack.config.js --hot --inline",

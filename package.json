@@ -1,7 +1,7 @@
 {
   "name": "pharaoh",
   "description": "A desktop app for the Pharaoh live programming tool.",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "author": "Pharaoh Team",
   "contributors": [
     {
@@ -75,6 +75,8 @@
   "window": {
     "title": "Pharaoh",
     "icon": "./icon.png",
+    "exe_icon": "./icon.png",
+    "mac_icon": "./icon.png",
     "toolbar": false,
     "frame": true,
     "single-instance": false,
@@ -88,4 +90,3 @@
     "as_desktop": true
   }
 }
-

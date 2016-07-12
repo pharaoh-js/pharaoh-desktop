@@ -102,7 +102,7 @@ const
     , matchBrackets      : true
     , mode               : 'javascript'
     , tabSize            : 2
-    , theme              : 'abcdef'
+    , theme              : 'zeemirror'
     , undoDepth          : 1000
     , readOnly           : student
 //    , extraKeys: {

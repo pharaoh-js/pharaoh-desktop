@@ -11,7 +11,7 @@ import Landing        from './components/landing/Landing'
 import createHistory  from 'history/lib/createHashHistory'
 require('./shared/styles.less')
 
-let history = createHistory({queryKey : false})
+const history = createHistory({queryKey : false})
 
 ReactDOM.render((
   <Router history={history}>
@@ -19,4 +19,3 @@ ReactDOM.render((
     <Route path="/" component={Landing} />
   </Router>
 ), document.getElementById('root'))
-

@@ -4,11 +4,10 @@ import Options   from './options/Options'
 
 const
   stylesheet = require('!css!less!./settings.less').toString()
-
 , Settings   = React.createClass({
   render() {
-    let handleClick = this.props.isSetting ?
-      this.props.hideSettings              :
+    const handleClick = this.props.isSetting ?
+      this.props.hideSettings                :
       this.props.showSettings
 
     return (
@@ -37,4 +36,3 @@ const
 })
 
 export default Settings
-

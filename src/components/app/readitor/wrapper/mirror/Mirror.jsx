@@ -2,10 +2,9 @@ import React, {PropTypes} from 'react'
 
 const
   BASEREF = 'https://pharaohjs.firebaseio.com/session/'
-
 , Mirror  = React.createClass({
   makeFirePad(subRef, config){
-    let
+    const
       fpRef      = new Firebase(BASEREF + subRef)
     , codeMirror = CodeMirror(document.getElementById('pad'), config)
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror, {defaultText : 'get hacking!'})
@@ -42,4 +41,3 @@ const
 })
 
 export default Mirror
-

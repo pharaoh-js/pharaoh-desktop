@@ -236,7 +236,3 @@ class FileTree extends React.Component {
 }
 
 export default FileTree
-
-// <div className="file-header">{this.state.projectName}</div>
-// the above line was removed from line 166 (between file-browser and the opening toolbar sorta div)
-

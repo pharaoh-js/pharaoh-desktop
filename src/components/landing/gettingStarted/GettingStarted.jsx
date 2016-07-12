@@ -3,7 +3,6 @@ import InlineCss from 'react-inline-css'
 
 const
   stylesheet     = require('!css!less!./gettingStarted.less').toString()
-
 , GettingStarted = React.createClass({
   getInitialState(){return {sessionName : 'New Session'}}
 , sessionNameChange(e) {
@@ -11,8 +10,8 @@ const
   }
 , handleSubmit (e) {
     e.preventDefault()
-    let sessionName = this.state.sessionName
-    this.props.startSession(sessionName);
+    const sessionName = this.state.sessionName
+    this.props.startSession(sessionName)
   }
 , render() {
     return (
@@ -62,4 +61,3 @@ const
 })
 
 export default GettingStarted
-

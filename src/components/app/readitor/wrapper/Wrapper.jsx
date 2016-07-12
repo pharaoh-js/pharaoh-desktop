@@ -5,8 +5,8 @@ import Settings           from './settings/Settings'
 const Wrapper = React.createClass({
 
   handleClick(event){
-    let
-      eNotClose = ['wrapper','settings']
+    const
+      eNotClose = ['wrapper', 'settings']
     , e         = event
 
     if (eNotClose.indexOf(e.target.offsetParent.className) === -1){
@@ -15,7 +15,7 @@ const Wrapper = React.createClass({
   }
 
 , render () {
-    let
+    const
       mirror   = <Mirror pad={this.props.pad} config={this.props.config} />
     , settings = this.props.isSetting                 ?
       <Settings
@@ -42,4 +42,3 @@ const Wrapper = React.createClass({
 })
 
 export default Wrapper
-

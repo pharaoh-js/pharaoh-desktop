@@ -3,7 +3,6 @@ import InlineCss from "react-inline-css"
 
 const
   stylesheet = require('!css!less!./stack.less').toString()
-
 , Stack      = React.createClass({
   render() {
     return (
@@ -23,4 +22,3 @@ const
 })
 
 export default Stack
-

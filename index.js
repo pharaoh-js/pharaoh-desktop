@@ -6,4 +6,3 @@ const
 , path  = require('path')
 , where = path.dirname(require.main.filename)
 , child = spawn(nw, [where])
-

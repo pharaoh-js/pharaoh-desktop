@@ -1,10 +1,9 @@
-import React              from 'react'
-import InlineCss          from 'react-inline-css'
-import {Link, IndexLink}  from 'react-router'
+import React             from 'react'
+import InlineCss         from 'react-inline-css'
+import {Link, IndexLink} from 'react-router'
 
 const
   stylesheet = require('!css!less!./header.less').toString()
-
 , Header     = React.createClass({
   getInitialState () {
     return {invite :'click'}
@@ -16,7 +15,7 @@ const
     } else {
       this.setState({invite : 'click'})
     }
-    let input = this.refs.textInput
+    const input = this.refs.textInput
     input.focus()
     input.select()
   }
@@ -46,7 +45,7 @@ const
                 className="copyURL"
                 type="text"
                 readOnly="true"
-                value={'http://pharaoh.js.org/#/app/r/' + this.props.projectKey}
+                value={`http://pharaoh.js.org/#/app/r/${this.props.projectKey}`}
               />
             </div>
           </div>
@@ -63,4 +62,3 @@ export default Header
 // (with id="copyThis" on the input)
 // basicaly the same thing as the current button:
 // <button className="btn" data-clipboard-text={'http://pharaoh.js.org/#/app/r/' + this.props.projectKey}>
-

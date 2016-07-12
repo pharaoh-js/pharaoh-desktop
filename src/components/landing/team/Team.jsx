@@ -26,4 +26,3 @@ const
 })
 
 export default Team
-

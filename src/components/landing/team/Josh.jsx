@@ -12,7 +12,6 @@ const
         </div>
         <big>Joshua Leduc</big>
         <p>Full Stack dev. Code is life. Tech. MEAN stack, React, Javascript, Firebase.</p>
-        <li><a className="links" href="">WWW</a></li>
         <li><a className="links" href="https://github.com/joshualeduc">Github</a></li>
         <li><a className="links" href="https://www.linkedin.com/in/joshualeduc">LinkedIn</a></li>
       </InlineCss>
@@ -21,4 +20,3 @@ const
 })
 
 export default Josh
-

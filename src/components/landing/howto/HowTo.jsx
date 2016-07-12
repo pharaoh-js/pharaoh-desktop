@@ -3,7 +3,6 @@ import InlineCss from 'react-inline-css'
 
 const
   stylesheet = require('!css!less!./howto.less').toString()
-
 , HowTo      = React.createClass({
   render() {
     return (
@@ -44,4 +43,3 @@ const
 })
 
 export default HowTo
-

@@ -21,4 +21,3 @@ const
 })
 
 export default Tanner
-

@@ -4,7 +4,6 @@ import {ReactRouter, Link}  from 'react-router'
 
 const
   stylesheet = require('!css!less!./header.less').toString()
-
 , Header     = React.createClass({
   getInitialState(){return {project : ''}}
 , handleProjectEntry (e) {
@@ -32,7 +31,7 @@ const
           </span>
           <Link
             className="link"
-            to={'/app/r/'+this.state.project}>
+            to={`/app/r/${this.state.project}`}>
             Go!
           </Link>
         </div>
@@ -42,4 +41,3 @@ const
 })
 
 export default Header
-

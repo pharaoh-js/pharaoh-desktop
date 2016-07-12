@@ -13,7 +13,7 @@ const
 
 , Landing    = React.createClass({
   initFirebase(projectName = 'Project Name') {
-    let
+    const
       ref         = new Firebase(BASEURL)
     , projectRef = ref.push({
       projectName : projectName
@@ -22,8 +22,8 @@ const
     return projectRef.key()
   }
 , startSession(projectName) {
-    let key = this.initFirebase(projectName)
-    this.props.history.pushState(null, '/app/w/' + key)
+    const key = this.initFirebase(projectName)
+    this.props.history.pushState(null, `/app/w/${key}`)
   }
 , render () {
     return (
@@ -43,4 +43,3 @@ const
 })
 
 export default Landing
-

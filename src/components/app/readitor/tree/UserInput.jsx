@@ -47,4 +47,3 @@ class UserInput extends React.Component {
 }
 
 export default UserInput
-

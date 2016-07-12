@@ -3,21 +3,18 @@ import InlineCss from 'react-inline-css'
 
 const
   stylesheet = require('!css!less!./options.less').toString()
-
 , Options    = React.createClass({
   render () {
-    let themes = this.props.themes.map((theme, i) => {
-      return (
-        <div
-          className="option"
-          onClick={this.props.updateSettings.bind(null, 'theme', theme)}
-          key={i}>
-          <div>
-            &mdash; {theme}
-          </div>
+    const themes = this.props.themes.map((theme, i) => (
+      <div
+        className="option"
+        onClick={this.props.updateSettings.bind(null, 'theme', theme)}
+        key={i}>
+        <div>
+          &mdash; {theme}
         </div>
-      )
-    })
+      </div>
+    ))
     return (
       <InlineCss componentName="Options" stylesheet={stylesheet}>
         <div>
@@ -30,4 +27,3 @@ const
 })
 
 export default Options
-

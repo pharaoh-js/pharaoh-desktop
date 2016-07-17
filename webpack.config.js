@@ -10,7 +10,7 @@ module.exports = {
 , entry   : [
     'webpack-dev-server/client?http://127.0.0.1:8080'
   , 'webpack/hot/only-dev-server'
-  , './src/index.jsx'
+  , './src/index.js'
   ]
 , output : {
     filename          : 'bundle.js'
@@ -19,7 +19,7 @@ module.exports = {
   }
 , module : {
     loaders : [{
-      test          : /\.jsx$/
+      test          : /\.js$/
     , include       : path.resolve(__dirname, 'src')
     , loaders       : ['react-hot', 'babel']
     }
@@ -41,6 +41,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ]
 , resolve : {
-    extensions : ['', '.js', '.jsx', '.less']
+    extensions : ['', '.js', '.less']
   }
 }

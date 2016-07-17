@@ -2,14 +2,14 @@ const path = require('path')
 
 module.exports = {
   context : path.resolve(__dirname)
-, entry   : './src/index.jsx'
+, entry   : './src/index.js'
 , output  : {
     filename          : 'bundle.js'
   , path              : './public'
   }
 , module : {
     loaders : [{
-      test          : /\.jsx$/
+      test          : /\.js$/
     , include       : path.resolve(__dirname, 'src')
     , loaders       : ['react-hot', 'babel']
     }
@@ -20,6 +20,6 @@ module.exports = {
     }
   ]}
 , resolve : {
-    extensions : ['', '.js', '.jsx', '.less']
+    extensions : ['', '.js', '.less']
   }
 }

@@ -1,5 +1,5 @@
 import React     from 'react'
-import Folder    from './Folder.jsx'
+import Folder    from './Folder'
 import Firebase  from 'firebase'
 import UserInput from './UserInput'
 import _         from 'lodash'

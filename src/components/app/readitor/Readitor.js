@@ -3,7 +3,7 @@ import InlineCss from 'react-inline-css'
 import Wrapper   from './wrapper/Wrapper'
 import StatusBar from './statusbar/Statusbar'
 import TitleBar  from './titlebar/Titlebar'
-import Tree      from './tree/FileTree.jsx'
+import Tree      from './tree/FileTree'
 
 const
   stylesheet = require('!css!less!./readitor.less').toString()

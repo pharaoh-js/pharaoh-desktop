@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const
-  spawn = require('child_process').spawn
-, nw    = require('nwjs')
-, path  = require('path')
-, where = path.dirname(require.main.filename)
-, child = spawn(nw, [where])
+  nw = require('nw')
+, { spawn } = require('child_process')
+, { dirname } = require('path')
+, here = dirname(require.main.filename)
+, child = spawn(nw, [here]) // eslint-disable-line no-unused-vars

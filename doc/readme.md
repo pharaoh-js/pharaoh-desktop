@@ -21,4 +21,3 @@ Accessing things from Firepad's website:
 * `examples.code.firepad.codeMirror_.getValue()`, etc.
 
 * passing `--enable-logging-stderr` should print `console.`whatevers to terminal.
-

@@ -1,4 +1,7 @@
 {
-  "presets": ["react", "es2017"]
+  "presets": ["react", "latest"],
+  "plugins": [
+    "transform-es2015-modules-commonjs",
+    "transform-class-properties"
+  ]
 }
-

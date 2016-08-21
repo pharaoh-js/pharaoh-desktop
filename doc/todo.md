@@ -1,3 +1,14 @@
+# Refactor
+* PostCSS + CSSModules
+* Move as much as possible to pure (function) components
+* nwjs => electron
+* actual binaries
+* fs (save/load)
+* move away from firebase (_eventually_)
+* test all the things
+
+# not-refactor
+
 * immediate:
   * `fileReader` for reading in/saving out files
     * `firepad.getText()` (and `setText()`, and same with HTML) -- use on event to write to fs
@@ -12,8 +23,6 @@
       * `nwbuild -p win64,osx64,linux64 -v 0.12.3 -f .`
         * `cat `which nw` app.nw > app && chmod +x app`
         * this would work with deployed/already bundled app, and turn into executable binary
-
-* our licence(s)(?) + those of dependencies, listed somewhere
 
 * ui for dealing with files:
   * should we set up an autosave (at x ms or whatever)?
@@ -35,4 +44,3 @@
   * context menu(s)
   * tray icon/menu
   * exploring fs in-app (rather than using native dialog)?
-

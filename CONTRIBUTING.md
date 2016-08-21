@@ -28,4 +28,3 @@
 * [Commit Messages](http://stopwritingramblingcommitmessages.com/)
 
 * That's all! Really, thanks for wanting to contribute, I appreciate every little bit. You're great.
-

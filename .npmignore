@@ -23,4 +23,3 @@ node_modules
 src
 webpack.config.js
 webpack.config.prod.js
-

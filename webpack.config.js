@@ -1,46 +1,44 @@
-const
-  path    = require('path')
-, webpack = require('webpack')
-, here    = path.resolve(__dirname)
+const { resolve } = require('path')
+const webpack = require('webpack')
 
 module.exports = {
-  devtool : 'cheap-eval-source-map'
-, context : here
-, debug   : true
-, entry   : [
+  devtool: 'cheap-eval-source-map'
+, context: resolve(__dirname)
+, debug: true
+, entry: [
     'webpack-dev-server/client?http://127.0.0.1:8080'
   , 'webpack/hot/only-dev-server'
   , './src/index.js'
   ]
-, output : {
-    filename          : 'bundle.js'
-  , path              : './public'
-  , publicPath        : 'http://127.0.0.1:8080/'
+, output: {
+    filename: 'bundle.js'
+  , path: './public'
+  , publicPath: 'http://127.0.0.1:8080/'
   }
-, module : {
-    loaders : [{
-      test          : /\.js$/
-    , include       : path.resolve(__dirname, 'src')
-    , loaders       : ['react-hot', 'babel']
+, module: {
+    loaders: [{
+      test: /\.js$/
+    , include: resolve(__dirname, 'src')
+    , loaders: ['babel']
     }
   , {
-      test          : /\.less$/
-    , include       : path.resolve(__dirname, 'src')
-    , loader        : 'style!css!less'
+      test: /\.css/
+    , include: resolve(__dirname, 'src')
+    , loader: 'style!css'
     }
   ]}
-, devServer : {
-    contentBase        : './public'
-  , historyApiFallback : true
-  , hot                : true
-  , stats              : {
-      colors : true
+, devServer: {
+    contentBase: './public'
+  , historyApiFallback: true
+  , hot: true
+  , stats: {
+      colors: true
     }
   }
-, plugins : [
+, plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
-, resolve : {
-    extensions : ['', '.js', '.less']
+, resolve: {
+    extensions : ['', '.js', '.css']
   }
 }

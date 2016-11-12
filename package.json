@@ -2,25 +2,27 @@
   "name": "pharaoh",
   "description": "A desktop app for the Pharaoh live programming tool.",
   "version": "0.9.7",
-  "author": "Pharaoh Team",
+  "author": {
+    "name": "Zac Anger",
+    "email": "zac@zacanger.com",
+    "url": "http://zacanger.com"
+  },
   "contributors": [
-    {
-      "name": "Zac Anger",
-      "url": "http://zacanger.com",
-      "email": "zac@zacanger.com"
-    }
+    "Pharaoh Team"
   ],
   "license": "WTFPL",
   "main": "./public/index.html",
   "preferGlobal": true,
   "bin": "./index.js",
   "scripts": {
+    "app": "electron electron.js",
     "build": "NODE_ENV=production npm run clean && webpack -p --config webpack.config.prod.js",
     "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
     "dev": "webpack-dev-server --config webpack.config.js --hot --inline",
-    "test:lint": "eslint -c .eslintrc.json src/",
     "postinstall": "nw install 0.15.0",
+    "release": "electron-packager . Pharaoh --platform=all --arch=all --version=1.0.0 --out=./binararies",
     "start": "./index.js",
+    "test:lint": "eslint -c .eslintrc.json src/",
     "tidy": "npm i && npm ddp && npm prune"
   },
   "homepage": "https://github.com/pharaoh-js/pharaoh-desktop#readme",
@@ -44,6 +46,7 @@
   ],
   "dependencies": {
     "babel-plugin-transform-class-properties": "6.18.0",
+    "electron-prebuilt": "1.4.6",
     "history": "1.12.0",
     "nwjs": "1.4.3",
     "react": "15.3.2",
@@ -60,6 +63,8 @@
     "babel-preset-react": "6.16.0",
     "css-loader": "0.25.0",
     "css-modules-require-hook": "4.0.5",
+    "electron-debug": "1.1.0",
+    "electron-packager": "8.2.0",
     "eslint": "3.10.0",
     "eslint-config-standard": "6.2.1",
     "eslint-config-standard-jsx": "3.2.0",

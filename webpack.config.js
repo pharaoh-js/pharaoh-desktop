@@ -1,36 +1,44 @@
-var React   = require('react')
-  , path    = require('path')
-  , webpack = require('webpack')
+const { resolve } = require('path')
+const webpack = require('webpack')
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map'
+  devtool: 'cheap-eval-source-map'
+, context: resolve(__dirname)
+, debug: true
 , entry: [
-    'webpack-dev-server/client?http://127.0.0.1:9090'
+    'webpack-dev-server/client?http://127.0.0.1:8080'
   , 'webpack/hot/only-dev-server'
-  , './src/index.jsx'
-  ],
-  output: {
+  , './src/index.js'
+  ]
+, output: {
     filename: 'bundle.js'
-  , sourceMapFilename: "[file].map"
-  , publicPath: 'http://127.0.0.1:9090/public'
-  },
-  module: {
+  , path: './public'
+  , publicPath: 'http://127.0.0.1:8080/'
+  }
+, module: {
     loaders: [{
-        test: /\.jsx$/
-      , exclude: /node_modules/
-      , loaders: ['react-hot', 'babel']
-      },
-      {
-        test: /\.less$/
-      , exclude: ['node_modules', 'bower_components']
-      , loader: 'style!css!less'
-      }
-    ]
-  },
-  plugins: [
+      test: /\.js$/
+    , include: resolve(__dirname, 'src')
+    , loaders: ['babel']
+    }
+  , {
+      test: /\.css/
+    , include: resolve(__dirname, 'src')
+    , loader: 'style!css'
+    }
+  ]}
+, devServer: {
+    contentBase: './public'
+  , historyApiFallback: true
+  , hot: true
+  , stats: {
+      colors: true
+    }
+  }
+, plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ],
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
+  ]
+, resolve: {
+    extensions : ['', '.js', '.css']
+  }
 }

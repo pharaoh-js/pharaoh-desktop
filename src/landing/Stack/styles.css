@@ -1,0 +1,15 @@
+.atomIcon { width: 50px; }
+.atomContainer {
+  text-align: center;
+  line-height: 1.6;
+  margin: 20px;
+  padding: 2px;
+  border: 2px solid #101010;
+  border-radius: 3px;
+  background-color: #ececec;
+}
+.atomContainer div { font-size: 2.2em; }
+.atomContainer img { margin: 5px 35px; }
+.atomContainer a { color: #101010; }
+.atomContainer a:hover { color: #0FB427; }
+.w25 { width: 125px; }

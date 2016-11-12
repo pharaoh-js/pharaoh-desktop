@@ -1,0 +1,93 @@
+.container {
+  padding:0px 0px 10px 0px;
+  border:1px solid gray;
+  width: 41.5%;
+  height: auto;
+  position: absolute;
+  right:40px;
+  top:120px;
+  border-radius: 5px;
+  background-color: #111A1F;
+  color: #0FB427;
+}
+.container .header {
+  color: #101010;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center;
+  font-size: 25px;
+  border-bottom: 1px solid #101010;
+  padding: 5px;
+  background-color: #ececec;
+}
+.option1 { padding:5px; }
+.option1 img {
+  width:40%;
+  margin:15px 0 0 5px;
+  zIndex:200;
+}
+
+.option1 li { padding: 5px; }
+.option1 p { text-align: center; }
+.option input {
+  margin-top: 8px;
+  border-radius: 3px;
+}
+.startSession {
+  text-align: center;
+  pading:5px;
+  margin-top: 15px;
+  float:right;
+  width:51.5%;
+}
+
+.big { color: rgb(67, 164, 244); }
+
+.startSession .btn {
+  background: #212121;
+  color: #ddd;
+  font-family: monospace;
+  margin-left: 4px;
+}
+.startSession  p {
+  width:99%;
+  padding:0px;margin: 5px 0 0 0;
+}
+
+.desktop {
+  text-align: center;
+  pading:5px;
+  margin-top: 15px;
+  float:left;
+  width:51.5%;
+  p {text-align:center;width:99%; margin-top:30px;}
+}
+
+.npmInstall {
+  margin-right:2%;
+  border-radius: 2px;
+  color: #101010;
+  border: 1px solid #0FB427;
+  padding:5px 10%;
+  background-color: #ececec;
+  position: relative;
+  top: 15px;
+  left:-3px;
+}
+.command {
+  font-size:12px;
+  font-family: monospace;
+  background: #222;
+  color: #eee;
+}
+.scroll-down {
+  position: absolute;
+  right:25%;
+  top:87%;
+  font-weight: bold;
+}
+
+.scroll-down div {
+  font-size: 35px;
+  text-align: center;
+}

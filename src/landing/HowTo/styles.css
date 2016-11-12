@@ -1,0 +1,40 @@
+.container {
+  border: 1px solid #101010;
+  border-radius: 10px;
+  width:45%;
+  margin: 2% 6%;
+  box-shadow: 5px 5px 5px 5px gray;
+  background-color: #ececec;
+}
+
+.header {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding-top:2px;
+  background-color: #152329;
+  color: #0FB427;
+  border-bottom: 2px solid #101010;
+  text-align:center;
+}
+
+.devmtn { color: #1953A5; }
+
+.devmtn:hover { color: #10AC12; }
+
+.container h2 {
+  margin-bottom: 8px;
+  font-size: 30px;
+}
+
+.container p {
+  padding: 0 10px;
+  font-size: 16px;
+  font-family: 'Hack', monospace;
+}
+
+.big {
+  color: rgb(67, 164, 244);
+  font-weight: 700;
+  margin: 15px;
+  border-bottom:1px solid #101010;
+}

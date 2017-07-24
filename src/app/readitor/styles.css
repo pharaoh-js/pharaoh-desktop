@@ -1,0 +1,12 @@
+.container {
+  background-color: #2a2a2c;
+  box-shadow: 3px 3px 3px 3px gray;
+  font-family: "Hack", monospace;
+  font-size: 16px;
+  height: 90vh;
+  left: 0;
+  margin: 5px 0 0 10px;
+  position: relative;
+  top: 5px;
+  width: 98.5%;
+}

@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "standard",
+    "standard-react"
+  ],
+  "plugins": [ "babel" ],
+  "parser": "babel-eslint",
+  "rules": {
+    "arrow-parens": ["warn", "always"],
+    "block-spacing": [0],
+    "comma-style": [1, "first"],
+    "indent": [1],
+    "jsx-quotes": [1, "prefer-double"],
+    "key-spacing": [0],
+    "no-multi-spaces": [0],
+    "object-curly-spacing": [1, "always"],
+    "one-var": [0]
+  }
+}

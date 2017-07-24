@@ -1,0 +1,119 @@
+.fileBrowser {
+  position: absolute;
+  bottom: 0;
+  border-right: 1px solid #101010;
+  left: 0;
+  width: 19%;
+  height: 100%;
+  background-color: #37383A;
+  color: #ececec;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.folder {
+  list-style-type: none;
+  margin-bottom: 0px;
+  padding: 7px 0px;
+}
+
+.folder .editBtns { padding: 0 7px; }
+
+.createFolder:hover,
+.file:hover,
+.file:active,
+.folder:hover,
+.folder:active {
+  background-color: #212223;
+  color: #5B97B4;
+  cursor: pointer;
+}
+
+.folderSelect {
+  overflow: hidden;
+  width: 99%;
+}
+
+.fileLength {
+  overflow: hidden;
+  width: 99%;
+}
+
+.customList {
+  padding-left: 10px;
+  margin: 0px;
+}
+
+.file {
+  list-style-type: none;
+  padding: 2px 0;
+}
+
+.createFolder {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.icons { display: none; }
+
+.file:hover .icons,
+.folder:hover .icons {
+  display: inline-block;
+  float: right;
+  margin: 0 3px;
+  position: relative;
+  top: 4px;
+  visibility: visible;
+  width: 18px;
+}
+
+.hidden { display: none; }
+
+.box {
+  border: 2px solid #101010;
+  border-top: none;
+  text-align: center;
+  z-index: 99999999;
+  background-color: rgb(40, 40, 40);
+  position: absolute;
+  left: 225%;
+  top: 5.4%;
+  padding: 15px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 250px;
+  height: auto;
+}
+
+.box input {
+  width: 95%;
+  padding: 5px;
+  background-color: #101010;
+  color: #ececec;
+  font-family: "Hack", monospace;
+  font-size: 14px
+}
+
+.box .btnContainer { margin: 8px 5px 0 5px; }
+
+.box .btnContainer img {
+  width: 20px;
+  margin: 0 12%;
+}
+
+.box .btnContainer img:hover {
+  width: 28px;
+  cursor: pointer;
+  margin:-1.5% 10.4%;
+}
+
+.box .btnContainer .submitImage {
+  width: 20px;
+  margin: 0 12%;
+}
+
+.box .btnContainer .submitImage:hover {
+  width: 28px;
+  cursor: pointer;
+  margin: -1.5% 10.4%;
+}

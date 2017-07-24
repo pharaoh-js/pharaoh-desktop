@@ -1,5 +1,9 @@
 # [PHARAOH](http://pharaoh.js.org)
 
+## ABANDONED
+
+Please use [Glitch](https://glitch.me). It's everything we wanted to make.
+
 This is the desktop app for Pharaoh, a project started by a group of students at
 [DevMountain](https://github.com/devmountain). Please see [our core repo](https://github.com/pharaoh-js/pharaoh.git)
 for more information on Pharaoh.
